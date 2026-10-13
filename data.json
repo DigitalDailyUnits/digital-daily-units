@@ -1,10 +1,10 @@
 {
- "fetched_at": "2026-10-13T21:53:56Z",
+ "fetched_at": "2026-10-13T22:29:41Z",
  "update_minute": 7,
  "markets": {
   "us": {
    "source": "sales",
-   "chart_time": "2026-10-13T14:53:56-07:00",
+   "chart_time": "2026-10-13T15:29:41-07:00",
    "songs": [
     {
      "artist": "Taylor Swift",
@@ -1010,7 +1010,7 @@
   },
   "ca": {
    "source": "sales",
-   "chart_time": "2026-10-13T14:53:57-07:00",
+   "chart_time": "2026-10-13T15:29:42-07:00",
    "songs": [
     {
      "artist": "Ella Langley",
@@ -2016,7 +2016,7 @@
   },
   "uk": {
    "source": "sales",
-   "chart_time": "2026-10-13T14:53:58-07:00",
+   "chart_time": "2026-10-13T15:29:43-07:00",
    "songs": [
     {
      "artist": "Jamie Miller",
@@ -3022,7 +3022,7 @@
   },
   "au": {
    "source": "sales",
-   "chart_time": "2026-10-13T14:53:59-07:00",
+   "chart_time": "2026-10-13T15:29:44-07:00",
    "songs": [
     {
      "artist": "HUGEL, Imael Angel & Ultra Naté",
@@ -4028,7 +4028,7 @@
   },
   "br": {
    "source": "sales",
-   "chart_time": "2026-10-13T14:53:59-07:00",
+   "chart_time": "2026-10-13T15:29:46-07:00",
    "songs": [
     {
      "artist": "Taylor Swift",
