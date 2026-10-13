@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Daily Units</title>
+<meta name="description" content="Estimated daily iTunes song sales for the US, Canada, UK, Australia and Brazil. Top 100 charts with movement, peaks and days on chart, updated every hour.">
+<meta property="og:title" content="Digital Daily Units">
+<meta property="og:description" content="Estimated daily iTunes song sales, top 100 in five countries, updated every hour.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#121a2e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232457ff'/%3E%3Crect x='13' y='34' width='9' height='17' rx='2' fill='%23fff'/%3E%3Crect x='27.5' y='24' width='9' height='27' rx='2' fill='%23fff'/%3E%3Crect x='42' y='13' width='9' height='38' rx='2' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: brand bar with next-update countdown, dark masthead with country switcher, a #1 feature block, then a ranked list with movement, last, peak and days. */
+:root {
+  --bg: #f3f4f7; --surface: #ffffff; --fg: #121826; --muted: #5d6676; --line: #dde1e8;
+  --mast-bg: #121a2e; --mast-fg: #f2f5fb; --mast-muted: #9aa6bf; --mast-line: #2a3654; --mast-chip: #1c2742;
+  --accent: #2457ff; --accent-ink: #ffffff; --bar: #d9e2ff;
+  --up: #12805c; --down: #c23b2e; --same: #8a93a3;
+  --new-bg: #ffe9a8; --new-fg: #5c4300; --re-bg: #dfe8ff; --re-fg: #1b3a9c;
+  --warn-bg: #fff3d6; --warn-fg: #6b4a00;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c111c; --surface: #141b2b; --fg: #e9edf5; --muted: #98a3b8; --line: #263148;
+    --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33;
+    --accent: #6f93ff; --accent-ink: #0a1230; --bar: #26376b;
+    --up: #3fcf9b; --down: #ff7a6b; --same: #7a859a;
+    --new-bg: #4a3a0d; --new-fg: #ffe08a; --re-bg: #1f2e5e; --re-fg: #b9ccff;
+    --warn-bg: #3a2f10; --warn-fg: #f3d58a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c111c; --surface: #141b2b; --fg: #e9edf5; --muted: #98a3b8; --line: #263148;
+  --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33;
+  --accent: #6f93ff; --accent-ink: #0a1230; --bar: #26376b;
+  --up: #3fcf9b; --down: #ff7a6b; --same: #7a859a;
+  --new-bg: #4a3a0d; --new-fg: #ffe08a; --re-bg: #1f2e5e; --re-fg: #b9ccff;
+  --warn-bg: #3a2f10; --warn-fg: #f3d58a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+.inner { max-width: 980px; margin-inline: auto; padding-inline: 16px; min-width: 0; }
+
+/* masthead */
+.mast { background: var(--mast-bg); color: var(--mast-fg); }
+.brandbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding-block: 14px; border-bottom: 1px solid var(--mast-line); }
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.brand svg { width: 34px; height: 34px; flex: none; }
+.brand .word { font-family: var(--font-display); font-weight: 900; font-stretch: 80%; font-size: 21px; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1; }
+.brand .word span { color: var(--accent); }
+.brand .tagline { display: block; font-family: var(--font-body); font-weight: 400; font-stretch: 100%; font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--mast-muted); margin-top: 3px; }
+.clock { display: flex; align-items: center; gap: 12px; background: var(--mast-chip); border: 1px solid var(--mast-line); border-radius: 8px; padding: 7px 12px 7px 10px; }
+.clock svg { width: 30px; height: 30px; flex: none; transform: rotate(-90deg); }
+.clock .ring-bg { fill: none; stroke: var(--mast-line); stroke-width: 4; }
+.clock .ring { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 0.9s linear; }
+.clock.busy .ring { animation: spin 1.2s linear infinite; transform-origin: 50% 50%; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.clock .l { font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mast-muted); }
+.clock .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 500; line-height: 1.05; }
+.clock .s { font-size: 11px; color: var(--mast-muted); }
+.heading { padding-block: 20px 0; }
+.eyebrow { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mast-muted); margin: 0 0 6px; }
+.mast h1 { font-family: var(--font-display); font-weight: 900; font-stretch: 78%; font-size: clamp(38px, 9vw, 68px); line-height: 0.98; letter-spacing: -0.01em; margin: 0; text-transform: uppercase; text-wrap: balance; }
+.mast .meta { color: var(--mast-muted); font-size: 13px; margin: 10px 0 18px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.mast .meta b { color: var(--mast-fg); font-weight: 500; }
+.tabs { display: flex; gap: 2px; overflow-x: auto; }
+.tab { font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: 17px; letter-spacing: 0.06em; padding: 11px 22px; border: 0; border-radius: 6px 6px 0 0; background: transparent; color: var(--mast-muted); cursor: pointer; border-bottom: 3px solid transparent; }
+.tab:hover { color: var(--mast-fg); }
+.tab[aria-pressed="true"] { background: var(--bg); color: var(--fg); border-bottom-color: var(--accent); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+main { display: flex; flex-direction: column; gap: 20px; padding-block: 20px 40px; }
+.notice { background: var(--warn-bg); color: var(--warn-fg); border-radius: 6px; padding: 10px 12px; font-size: 13px; }
+
+/* movement marks */
+.mv { font-family: var(--font-data); font-size: 12px; font-weight: 500; line-height: 1; display: inline-flex; gap: 2px; align-items: center; }
+.mv.up { color: var(--up); } .mv.down { color: var(--down); } .mv.same { color: var(--same); }
+.tag { font-family: var(--font-display); font-weight: 800; font-size: 10px; letter-spacing: 0.08em; padding: 3px 5px; border-radius: 3px; line-height: 1; }
+.tag.new { background: var(--new-bg); color: var(--new-fg); } .tag.re { background: var(--re-bg); color: var(--re-fg); }
+
+/* cover art: a drawn cover sits underneath, the real artwork covers it once it loads */
+.art { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 1; flex: none; }
+.art .ph { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 10%; color: #ffffff; font-family: var(--font-display); font-weight: 900; font-stretch: 80%; line-height: 0.9; text-transform: uppercase; }
+.art .ph .ini { font-size: 2.2em; letter-spacing: -0.02em; }
+.art .ph .note { align-self: flex-end; opacity: 0.75; font-size: 1em; }
+.art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* highlights */
+.notes { display: flex; flex-wrap: wrap; gap: 8px; }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; font-size: 13px; display: flex; gap: 8px; align-items: baseline; min-width: 0; max-width: 100%; }
+.note .k { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.note .s { overflow-wrap: anywhere; }
+
+/* number one */
+.hero { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: 20px; padding: 18px; align-items: center; }
+.hero .art { width: 148px; font-size: 22px; }
+.hero-top { display: flex; align-items: center; gap: 12px; }
+.hero-rank { font-family: var(--font-display); font-weight: 900; font-stretch: 70%; font-size: 84px; line-height: 0.85; color: var(--accent); }
+.hero h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(20px, 4vw, 28px); line-height: 1.1; margin: 8px 0 2px; overflow-wrap: anywhere; text-wrap: balance; }
+.hero .artist { color: var(--muted); margin: 0 0 12px; overflow-wrap: anywhere; }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.stat .l { font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.stat .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 20px; font-weight: 500; }
+
+/* list */
+.board { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.row { display: grid; grid-template-columns: 64px 44px minmax(0, 1fr) 140px 54px 54px 54px; gap: 12px; align-items: center; padding: 9px 14px; border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: 0; }
+.row.head { padding-block: 9px; font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.row.head .r { text-align: right; }
+.rk { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.rk .n { font-family: var(--font-display); font-weight: 800; font-stretch: 75%; font-size: 28px; line-height: 0.95; font-variant-numeric: tabular-nums; }
+.row .art { width: 44px; font-size: 7px; }
+.sg { min-width: 0; }
+.sg .t { font-weight: 500; overflow-wrap: anywhere; }
+.sg .a { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.sl .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 14px; }
+.sl .bar { height: 5px; border-radius: 3px; background: var(--bar); margin-top: 5px; }
+.sl .bar i { display: block; height: 100%; border-radius: 3px; background: var(--accent); }
+.stats { display: contents; }
+.st { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 14px; text-align: right; color: var(--muted); }
+.st.peak { color: var(--fg); }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; padding-block: 18px 40px; display: flex; flex-direction: column; gap: 6px; }
+footer p { margin: 0; max-width: 75ch; }
+footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 80%; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg); }
+
+@media (max-width: 700px) {
+  .brand .tagline { display: none; }
+  .hero { grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 14px; }
+  .hero .art { width: 96px; font-size: 15px; }
+  .hero-rank { font-size: 60px; }
+  .row { grid-template-columns: 46px 40px minmax(0, 1fr); gap: 10px; row-gap: 6px; }
+  .row.head { display: none; }
+  .row .art { width: 40px; }
+  .rk .n { font-size: 24px; }
+  .sl { grid-column: 3; }
+  .stats { display: flex; gap: 16px; grid-column: 3; }
+  .st { text-align: left; font-size: 12px; }
+  .st::before { content: attr(data-l) " "; font-family: var(--font-display); font-weight: 700; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+}
+@media (prefers-reduced-motion: reduce) { .clock .ring { transition: none; } .clock.busy .ring { animation: none; } }
+</style>
+</head>
+<body>
+<div class="mast">
+  <div class="inner">
+    <div class="brandbar">
+      <a class="brand" href="#">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="var(--accent)"/><rect x="13" y="34" width="9" height="17" rx="2" fill="#fff"/><rect x="27.5" y="24" width="9" height="27" rx="2" fill="#fff"/><rect x="42" y="13" width="9" height="38" rx="2" fill="#fff"/></svg>
+        <div class="word">Digital Daily <span>Units</span><span class="tagline">Estimated iTunes song sales, updated every hour</span></div>
+      </a>
+      <div class="clock" id="clock" role="timer" aria-live="off">
+        <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring" id="ring" cx="18" cy="18" r="15" stroke-dasharray="94.25" stroke-dashoffset="0"/></svg>
+        <div>
+          <div class="l" id="clockLabel">Next chart update</div>
+          <div class="v" id="clockValue">--:--</div>
+          <div class="s" id="clockSub"></div>
+        </div>
+      </div>
+    </div>
+    <div class="heading">
+      <p class="eyebrow">Top 100 · estimated sales, last 24 hours</p>
+      <h1 id="country">United States</h1>
+      <div class="meta" id="meta"></div>
+      <div class="tabs" id="tabs" role="group" aria-label="Country"></div>
+    </div>
+  </div>
+</div>
+
+<main class="inner">
+  <div class="notice" id="notice" hidden></div>
+  <div class="notes" id="notes"></div>
+  <section class="hero" id="hero" hidden></section>
+  <div class="board">
+    <div class="row head">
+      <div>Rank</div><div></div><div>Song</div><div>Est. sales, 24 hours</div>
+      <div class="r">Last</div><div class="r">Peak</div><div class="r">Days</div>
+    </div>
+    <div id="rows"></div>
+  </div>
+</main>
+
+<footer class="inner">
+  <div class="fb">Digital Daily Units</div>
+  <p>Chart positions come from Apple's iTunes Store song charts. Sales figures are estimates worked out from chart position, not reported sales. Last, peak and days count from the day this site started tracking.</p>
+  <p>Not affiliated with Apple. iTunes is a trademark of Apple Inc. Cover art belongs to its owners.</p>
+  <p id="copy"></p>
+</footer>
+
+<script>
+(function () {
+  /* ---- settings ---- */
+  var A = 4636, B = 0.68;                 // estimate = A × rank^-B × country scale
+  var UPDATE_MINUTE = 7;                  // the site updates at this minute past every hour (matches update.yml)
+  var LATE_LIMIT_MIN = 20;                // stop waiting for an update this many minutes after it was due
+  var MARKETS = {
+    us: { code: "US", name: "United States", scale: 1 },
+    ca: { code: "CA", name: "Canada", scale: 0.11 },
+    uk: { code: "UK", name: "United Kingdom", scale: 0.14 },
+    au: { code: "AU", name: "Australia", scale: 0.06 },
+    br: { code: "BR", name: "Brazil", scale: 0.05 }
+  };
+
+  function estimate(rank, scale) { return Math.round(A * Math.pow(rank, -B) * scale); }
+  function num(n) { return n.toLocaleString("en-US"); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var tabsEl = document.getElementById("tabs"), rowsEl = document.getElementById("rows"), heroEl = document.getElementById("hero");
+  var notesEl = document.getElementById("notes"), metaEl = document.getElementById("meta"), noticeEl = document.getElementById("notice");
+  var countryEl = document.getElementById("country");
+  var clockEl = document.getElementById("clock"), ringEl = document.getElementById("ring");
+  var clockLabel = document.getElementById("clockLabel"), clockValue = document.getElementById("clockValue"), clockSub = document.getElementById("clockSub");
+  document.getElementById("copy").textContent = "© " + new Date().getFullYear() + " Digital Daily Units";
+
+  var data = null, current = "us", fetchedAt = 0;
+
+  /* ---- cover art ---- */
+  function artUrl(url, size) { return url ? url.replace(/\/\d+x\d+bb\./, "/" + size + "x" + size + "bb.") : ""; }
+  function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return Math.abs(h); }
+  function initials(name) {
+    var words = (name || "").replace(/\(.*?\)|feat\..*|&.*|,.*/gi, "").trim().split(/\s+/).filter(Boolean);
+    var s = words.slice(0, 2).map(function (w) { return w.charAt(0); }).join("");
+    return s || "♪";
+  }
+  function cover(song, size) {
+    var tile = el("div", "art");
+    var h = hash(song.artist + "|" + song.title), hue = h % 360, hue2 = (hue + 40 + (h >> 8) % 60) % 360;
+    var ph = el("div", "ph");
+    ph.style.background = "linear-gradient(135deg, hsl(" + hue + " 62% 38%), hsl(" + hue2 + " 70% 22%))";
+    ph.appendChild(el("div", "ini", initials(song.artist)));
+    ph.appendChild(el("div", "note", "♪"));
+    tile.appendChild(ph);
+    if (song.art) {
+      var img = document.createElement("img");
+      img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+      img.src = artUrl(song.art, size);
+      img.onerror = function () {
+        if (img.dataset.retry !== "1" && img.src !== song.art) { img.dataset.retry = "1"; img.src = song.art; }
+        else if (img.parentNode) img.parentNode.removeChild(img);
+      };
+      tile.appendChild(img);
+    }
+    return tile;
+  }
+
+  /* ---- chart ---- */
+  function movement(song, pos) {
+    if (song.new) return el("span", "tag new", "NEW");
+    if (song.re) return el("span", "tag re", "RE");
+    if (song.prev == null) return el("span", "mv same", "–");
+    var diff = song.prev - pos;
+    if (diff > 0) return el("span", "mv up", "▲" + diff);
+    if (diff < 0) return el("span", "mv down", "▼" + Math.abs(diff));
+    return el("span", "mv same", "=");
+  }
+  function stat(label, value, cls) { var s = el("div", "st" + (cls ? " " + cls : ""), value); s.setAttribute("data-l", label); return s; }
+  function fmtTime(t) {
+    var d = new Date(t);
+    if (isNaN(d.getTime())) return t;
+    try { return d.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZoneName: "short" }); }
+    catch (e) { return d.toUTCString(); }
+  }
+
+  function renderNotes(songs) {
+    notesEl.textContent = "";
+    var climb = null, fall = null, debut = null;
+    songs.forEach(function (s, i) {
+      var pos = i + 1;
+      if (s.prev != null && !s.re) {
+        var d = s.prev - pos;
+        if (d > 0 && (!climb || d > climb.d)) climb = { d: d, s: s };
+        if (d < 0 && (!fall || -d > fall.d)) fall = { d: -d, s: s };
+      }
+      if (s.new && !debut) debut = { pos: pos, s: s };
+    });
+    function add(k, text) { var n = el("div", "note"); n.appendChild(el("span", "k", k)); n.appendChild(el("span", "s", text)); notesEl.appendChild(n); }
+    if (climb) add("Biggest climb", "▲" + climb.d + "  " + climb.s.title + " – " + climb.s.artist);
+    if (debut) add("Highest new entry", "#" + debut.pos + "  " + debut.s.title + " – " + debut.s.artist);
+    if (fall) add("Biggest fall", "▼" + fall.d + "  " + fall.s.title + " – " + fall.s.artist);
+  }
+
+  function show(key) {
+    current = key;
+    Array.prototype.forEach.call(tabsEl.children, function (b) { b.setAttribute("aria-pressed", String(b.dataset.key === key)); });
+    var m = MARKETS[key];
+    countryEl.textContent = m.name;
+    document.title = m.name + " Top 100 · Digital Daily Units";
+    rowsEl.textContent = ""; heroEl.textContent = ""; heroEl.hidden = true; metaEl.textContent = ""; notesEl.textContent = ""; noticeEl.hidden = true;
+    var d = data && data.markets && data.markets[key];
+    if (!d) { noticeEl.textContent = "No chart data for this country yet."; noticeEl.hidden = false; return; }
+
+    var songs = d.songs, max = estimate(1, m.scale), first = songs[0];
+    if (first) {
+      heroEl.hidden = false;
+      heroEl.appendChild(cover(first, 300));
+      var body = el("div"), top = el("div", "hero-top");
+      top.appendChild(el("div", "hero-rank", "1"));
+      top.appendChild(movement(first, 1));
+      body.appendChild(top);
+      body.appendChild(el("h2", "", first.title));
+      body.appendChild(el("p", "artist", first.artist));
+      var hs = el("div", "hero-stats");
+      [["Est. sales, 24 hours", num(estimate(1, m.scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
+        var s = el("div", "stat"); s.appendChild(el("div", "l", p[0])); s.appendChild(el("div", "v", p[1])); hs.appendChild(s);
+      });
+      body.appendChild(hs);
+      heroEl.appendChild(body);
+    }
+    var frag = document.createDocumentFragment();
+    songs.forEach(function (s, i) {
+      if (i === 0) return;
+      var pos = i + 1, v = estimate(pos, m.scale);
+      var row = el("div", "row");
+      var rk = el("div", "rk"); rk.appendChild(el("div", "n", String(pos))); rk.appendChild(movement(s, pos));
+      row.appendChild(rk);
+      row.appendChild(cover(s, 100));
+      var sg = el("div", "sg"); sg.appendChild(el("div", "t", s.title)); sg.appendChild(el("div", "a", s.artist));
+      row.appendChild(sg);
+      var sl = el("div", "sl"); sl.appendChild(el("div", "v", num(v)));
+      var bar = el("div", "bar"), fill = document.createElement("i"); fill.style.width = Math.max(2, (v / max) * 100) + "%";
+      bar.appendChild(fill); sl.appendChild(bar); row.appendChild(sl);
+      var stats = el("div", "stats");
+      stats.appendChild(stat("Last", s.prev != null ? String(s.prev) : "–"));
+      stats.appendChild(stat("Peak", String(s.peak), "peak"));
+      stats.appendChild(stat("Days", String(s.days)));
+      row.appendChild(stats);
+      frag.appendChild(row);
+    });
+    rowsEl.appendChild(frag);
+    renderNotes(songs);
+
+    function metaItem(k, v) { var s = el("span"); s.appendChild(document.createTextNode(k + " ")); s.appendChild(el("b", "", v)); metaEl.appendChild(s); }
+    metaItem("Chart:", d.source === "sales" ? "iTunes Store sales" : "Apple Music streaming");
+    metaItem("Chart time:", fmtTime(d.chart_time));
+    if (data.demo) {
+      noticeEl.textContent = "Preview: song positions are the real iTunes chart from this afternoon. Last, peak, days and the NEW and RE marks are made-up demo values, because history only builds up once the site has been running for a few days.";
+      noticeEl.hidden = false;
+    } else if (d.source !== "sales") {
+      noticeEl.textContent = "The sales chart could not be downloaded for this country, so this is the streaming chart instead.";
+      noticeEl.hidden = false;
+    }
+  }
+
+  /* ---- loading and the update countdown ---- */
+  function load() {
+    return fetch("data.json?t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) {
+        var t = j.demo ? Date.now() : Date.parse(j.fetched_at);
+        if (!data || t !== fetchedAt) { data = j; fetchedAt = t; if (typeof j.update_minute === "number") UPDATE_MINUTE = j.update_minute; show(current); }
+      })
+      .catch(function () { if (!data) { noticeEl.textContent = "Could not load the chart data. Try reloading the page in a minute."; noticeEl.hidden = false; } });
+  }
+
+  function slotBefore(now) {      // most recent scheduled update time at or before now
+    var d = new Date(now); d.setUTCMinutes(UPDATE_MINUTE, 0, 0);
+    if (d.getTime() > now) d.setUTCHours(d.getUTCHours() - 1);
+    return d.getTime();
+  }
+  function two(n) { return (n < 10 ? "0" : "") + n; }
+  function ago(ms) {
+    var m = Math.round(ms / 60000);
+    if (m < 1) return "just now";
+    if (m < 60) return m + " min ago";
+    var h = Math.floor(m / 60); return h + " hr " + (m % 60) + " min ago";
+  }
+
+  var lastPoll = 0;
+  function tick() {
+    var now = Date.now();
+    var due = slotBefore(now), next = due + 3600000;
+    var waiting = fetchedAt && fetchedAt < due && (now - due) < LATE_LIMIT_MIN * 60000;
+    if (waiting) {
+      clockEl.classList.add("busy");
+      clockLabel.textContent = "Chart update";
+      clockValue.textContent = "Updating…";
+      ringEl.style.strokeDashoffset = "70";
+      if (now - lastPoll > 30000) { lastPoll = now; load(); }
+    } else {
+      clockEl.classList.remove("busy");
+      var left = Math.max(0, Math.ceil((next - now) / 1000));
+      clockLabel.textContent = "Next chart update";
+      clockValue.textContent = two(Math.floor(left / 60)) + ":" + two(left % 60);
+      ringEl.style.strokeDashoffset = String(94.25 * (left / 3600));
+      if (left === 0) { lastPoll = 0; }
+    }
+    clockSub.textContent = fetchedAt ? "Last updated " + ago(now - fetchedAt) : "";
+  }
+
+  Object.keys(MARKETS).forEach(function (k) {
+    var b = el("button", "tab", MARKETS[k].code);
+    b.type = "button"; b.dataset.key = k; b.title = MARKETS[k].name;
+    b.addEventListener("click", function () { show(k); try { history.replaceState(null, "", "#" + k); } catch (e) {} });
+    tabsEl.appendChild(b);
+  });
+  var h = (location.hash || "").replace("#", "");
+  if (MARKETS[h]) current = h;
+  load().then(tick);
+  setInterval(tick, 1000);
+  setInterval(load, 15 * 60 * 1000);   // safety refresh in case a tab sleeps through an update
+})();
+</script>
+</body>
+</html>
