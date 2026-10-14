@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T02:00:24Z",
+ "fetched_at": "2026-10-14T02:07:08Z",
  "update_minutes": [
   7,
   37
@@ -7,7 +7,7 @@
  "markets": {
   "us": {
    "source": "sales",
-   "chart_time": "2026-10-13T19:00:24-07:00",
+   "chart_time": "2026-10-13T19:07:08-07:00",
    "songs": [
     {
      "artist": "Taylor Swift",
@@ -23,7 +23,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero",
-     "sales": 2815,
+     "sales": 2816,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
      "prev": 2,
      "peak": 2,
@@ -45,7 +45,7 @@
     {
      "artist": "Ella Langley",
      "title": "Choosin' Texas",
-     "sales": 1757,
+     "sales": 1758,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
      "prev": 4,
      "peak": 4,
@@ -100,7 +100,7 @@
     {
      "artist": "Imael Angel",
      "title": "Bad Times (Extended Version)",
-     "sales": 1012,
+     "sales": 1013,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
      "prev": 10,
      "peak": 9,
@@ -111,7 +111,7 @@
     {
      "artist": "Wolf Parade",
      "title": "I'll Believe In Anything",
-     "sales": 942,
+     "sales": 943,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/c6/36/73/c63673cb-f959-0755-727c-df7760baf178/WolfParade_ApologiesToTheQueenMary_1425px.jpg/170x170bb.png",
      "prev": 8,
      "peak": 7,
@@ -144,7 +144,7 @@
     {
      "artist": "Marc Atlas",
      "title": "Waste My Time",
-     "sales": 788,
+     "sales": 789,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/b0/66/b8b06683-b734-08eb-eac7-788e63db3358/26SYMIM35305.rgb.jpg/170x170bb.png",
      "prev": 11,
      "peak": 11,
@@ -331,7 +331,7 @@
     {
      "artist": "Koe Wetzel & Ella Langley",
      "title": "Jaded",
-     "sales": 446,
+     "sales": 447,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c1/09/7e/c1097e38-0d2e-d389-2be7-0762979bb43a/ticket.easjqfbg.jpg/170x170bb.png",
      "prev": 29,
      "peak": 29,
@@ -364,7 +364,7 @@
     {
      "artist": "Elevation Worship & Chandler Moore",
      "title": "God I'm Just Grateful",
-     "sales": 418,
+     "sales": 419,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/42/01/51420110-806a-86c5-7025-5016e5a2bd57/196873750729.jpg/170x170bb.png",
      "prev": 34,
      "peak": 33,
@@ -551,7 +551,7 @@
     {
      "artist": "Lainey Wilson",
      "title": "Kinda Love It",
-     "sales": 315,
+     "sales": 316,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/02/f4/d8/02f4d8bd-ccb6-5d5c-2948-8abb1f31ce34/4099964296273.jpg/170x170bb.png",
      "prev": 51,
      "peak": 49,
@@ -914,7 +914,7 @@
     {
      "artist": "Jerri",
      "title": "The JAWN",
-     "sales": 223,
+     "sales": 224,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5b/73/3a/5b733a6d-4234-abbb-4c82-5282657b5c2d/193436473040.jpg/170x170bb.png",
      "prev": 85,
      "peak": 83,
@@ -1113,7 +1113,7 @@
   },
   "ca": {
    "source": "sales",
-   "chart_time": "2026-10-13T19:00:25-07:00",
+   "chart_time": "2026-10-13T19:07:09-07:00",
    "songs": [
     {
      "artist": "Ella Langley",
@@ -2219,7 +2219,7 @@
   },
   "uk": {
    "source": "sales",
-   "chart_time": "2026-10-13T19:00:26-07:00",
+   "chart_time": "2026-10-13T19:07:10-07:00",
    "songs": [
     {
      "artist": "Jamie Miller",
@@ -2235,7 +2235,7 @@
     {
      "artist": "Fontaines D.C. & ROSALÍA",
      "title": "Where Is Gone?",
-     "sales": 390,
+     "sales": 389,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/10/8c/24108c9c-845b-40f3-6175-9effb95e1d5c/191404167373.png/170x170bb.png",
      "prev": 2,
      "peak": 2,
@@ -2279,7 +2279,7 @@
     {
      "artist": "Ashe",
      "title": "Stop The Wedding!",
-     "sales": 185,
+     "sales": 184,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/55/7a/b7557aef-bb0a-cc57-25bf-979eee194f16/075679571403.jpg/170x170bb.png",
      "prev": 7,
      "peak": 6,
@@ -2785,7 +2785,7 @@
     {
      "artist": "Kaleel Zibe & Isabella Zibe",
      "title": "Rise",
-     "sales": 43,
+     "sales": 42,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f9/20/54/f9205489-a8b9-a2b7-1894-3df2248c8c60/artwork.jpg/170x170bb.png",
      "prev": 69,
      "peak": 52,
@@ -3325,7 +3325,7 @@
   },
   "au": {
    "source": "sales",
-   "chart_time": "2026-10-13T19:00:27-07:00",
+   "chart_time": "2026-10-13T19:07:11-07:00",
    "songs": [
     {
      "artist": "Taylor Swift",
@@ -3352,7 +3352,7 @@
     {
      "artist": "Ella Langley",
      "title": "Choosin' Texas",
-     "sales": 122,
+     "sales": 123,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
      "prev": 3,
      "peak": 3,
@@ -3616,7 +3616,7 @@
     {
      "artist": "Cliff Richard",
      "title": "Oh, Pretty Woman",
-     "sales": 27,
+     "sales": 28,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9c/2f/56/9c2f560f-a9aa-1dc3-aff5-4a4d76eecd69/1200214965921.jpg/170x170bb.png",
      "prev": 27,
      "peak": 25,
@@ -3671,7 +3671,7 @@
     {
      "artist": "Cinek",
      "title": "Floating (Genom Världar [English Version])",
-     "sales": 24,
+     "sales": 25,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/88/83/cc/8883cc28-3d87-2bbb-1033-a914ed10f55f/artwork.jpg/170x170bb.png",
      "prev": 32,
      "peak": 30,
@@ -4431,12 +4431,12 @@
   },
   "br": {
    "source": "sales",
-   "chart_time": "2026-10-13T19:00:28-07:00",
+   "chart_time": "2026-10-13T19:07:12-07:00",
    "songs": [
     {
      "artist": "Racionais MC's",
      "title": "Sou + Você",
-     "sales": 226,
+     "sales": 225,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3f/ca/fd/3fcafdad-07c1-c752-7878-39dfd32b3b28/0.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -4799,7 +4799,7 @@
     {
      "artist": "Lost Frequencies & Tom Odell",
      "title": "Black Friday (pretty like the sun)",
-     "sales": 21,
+     "sales": 20,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/39/a7/49/39a749b9-f198-58ea-2198-a214d6c168b7/00198704029172_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 34,
