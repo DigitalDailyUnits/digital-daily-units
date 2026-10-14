@@ -2,7 +2,8 @@
 """Digital Daily Units updater.
 
 Downloads the iTunes sales charts for five storefronts, makes sure every song has
-cover art, tracks chart history, and writes data.json for the site.
+cover art, tracks chart history, estimates each song's sales for the last 24 hours,
+and writes data.json for the site.
 
 Per country, in order of preference:
   1. iTunes Store top songs with explicit=true (the full top 100 sales chart)
@@ -22,15 +23,30 @@ chart, recent daily positions and its artwork. Uses only the Python standard lib
 import json
 import os
 import sys
+import math
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 MARKETS = {"us": "us", "ca": "ca", "uk": "gb", "au": "au", "br": "br"}  # site key -> Apple storefront code
+
+# ---- sales estimate settings ----
+# A song's estimated sales for the last 24 hours =
+#   demand factor × country scale × (NOW_WEIGHT × curve(current position) + (1 - NOW_WEIGHT) × average curve over the last 24 hours)
+# where curve(position) = CURVE_A × position^-CURVE_B.
+CURVE_A = 4636
+CURVE_B = 0.68
+NOW_WEIGHT = 0.65             # how much the current position counts versus the last 24 hours
+OFF_CHART_POSITION = 110      # position assumed for times a song was outside the top 100
+SCALE = {"us": 1.0, "ca": 0.11, "uk": 0.14, "au": 0.06, "br": 0.05}
+UTC_OFFSET = {"us": -5, "ca": -5, "uk": 0, "au": 10, "br": -3}  # rough local time, used for the time-of-day pattern
+# Relative demand by local weekday (Monday first). New music comes out on Fridays.
+WEEKDAY_DEMAND = [0.97, 0.95, 0.95, 0.98, 1.08, 1.06, 1.00]
+DAILY_SWING = 0.025           # ± change over the day, highest in the late evening
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "data.json")
 HISTORY = os.path.join(HERE, "history.json")
 HEADERS = {"User-Agent": "Mozilla/5.0 (Digital Daily Units updater)"}
-UPDATE_MINUTE = 7             # must match the minute in .github/workflows/update.yml
+UPDATE_MINUTES = [7, 37]      # must match the minutes in .github/workflows/update.yml
 KEEP_DAYS_OF_POSITIONS = 10   # daily positions remembered per song
 FORGET_AFTER_DAYS = 90        # songs unseen this long are dropped from history
 
@@ -120,13 +136,37 @@ def day_diff(a, b):
     return (datetime.strptime(a, "%Y-%m-%d") - datetime.strptime(b, "%Y-%m-%d")).days
 
 
-def apply_history(market_hist, songs, today):
-    """Update one country's history with today's chart and return the songs with movement info.
+def curve(position):
+    return CURVE_A * position ** -CURVE_B
 
-    market_hist: {"dates": [...], "songs": {key: record}}  (modified in place)
+
+def demand_factor(now, market):
+    """Smooth day-of-week and time-of-day pattern, in the country's local time."""
+    local = now + timedelta(hours=UTC_OFFSET.get(market, 0))
+    # weekday as a continuous number, with each day's value centred at noon, so it changes smoothly hour by hour
+    pos = local.weekday() + (local.hour + local.minute / 60) / 24 - 0.5
+    i = math.floor(pos) % 7
+    frac = pos - math.floor(pos)
+    weekly = WEEKDAY_DEMAND[i] * (1 - frac) + WEEKDAY_DEMAND[(i + 1) % 7] * frac
+    hour = local.hour + local.minute / 60
+    daily = 1 + DAILY_SWING * math.cos(2 * math.pi * (hour - 22) / 24)
+    return weekly * daily
+
+
+def apply_history(market_hist, songs, today, now=None, market="us"):
+    """Update one country's history with the latest chart and return the songs with movement and sales.
+
+    market_hist: {"dates": [...], "snaps": [...], "songs": {key: record}}  (modified in place)
     """
+    now = now or datetime.now(timezone.utc)
     dates = market_hist.setdefault("dates", [])
     store = market_hist.setdefault("songs", {})
+    # snapshots (minutes since 1970) kept for the rolling 24-hour estimate
+    now_min = int(now.timestamp() // 60)
+    cutoff = now_min - 24 * 60
+    snaps = [s for s in market_hist.get("snaps", []) if s > cutoff and s != now_min] + [now_min]
+    market_hist["snaps"] = snaps
+    factor = demand_factor(now, market) * SCALE.get(market, 1.0)
     earlier = [d for d in dates if d < today]
     prev_chart_day = earlier[-1] if earlier else None
     if today not in dates:
@@ -154,9 +194,15 @@ def apply_history(market_hist, songs, today):
             rec["peak"], rec["peak_date"] = position, today
         for old in sorted(rec["pos"])[:-KEEP_DAYS_OF_POSITIONS]:
             del rec["pos"][old]
+        recent = {m: p for m, p in rec.get("recent", []) if m > cutoff and m != now_min}
+        recent[now_min] = position
+        rec["recent"] = sorted(recent.items())
+        average = sum(curve(recent.get(s, OFF_CHART_POSITION)) for s in snaps) / len(snaps)
+        sales = factor * (NOW_WEIGHT * curve(position) + (1 - NOW_WEIGHT) * average)
         result.append({
             "artist": song["artist"],
             "title": song["title"],
+            "sales": int(round(sales)),
             "art": song.get("art") or rec.get("art", ""),
             "prev": previous,
             "peak": rec["peak"],
@@ -167,6 +213,11 @@ def apply_history(market_hist, songs, today):
 
     for key in [k for k, r in store.items() if r["last_date"] and day_diff(today, r["last_date"]) > FORGET_AFTER_DAYS]:
         del store[key]
+    for r in store.values():  # keep the file small: drop positions older than 24 hours
+        if r.get("recent"):
+            r["recent"] = [x for x in r["recent"] if x[0] > cutoff]
+            if not r["recent"]:
+                del r["recent"]
     return result
 
 
@@ -194,7 +245,7 @@ def main():
             print(f"  ok ({result['source']}, {len(result['songs'])} songs)")
             market_hist = history.setdefault(key, {})
             fill_artwork(result["songs"], market_hist, code)
-            result["songs"] = apply_history(market_hist, result["songs"], today)
+            result["songs"] = apply_history(market_hist, result["songs"], today, now, key)
             markets[key] = result
         elif key in previous:
             print("  keeping previous copy")
@@ -204,7 +255,7 @@ def main():
         print("no data at all, leaving files untouched", file=sys.stderr)
         return 1
 
-    payload = {"fetched_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "update_minute": UPDATE_MINUTE, "markets": markets}
+    payload = {"fetched_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "update_minutes": UPDATE_MINUTES, "markets": markets}
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=1)
     with open(HISTORY, "w", encoding="utf-8") as f:

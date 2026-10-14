@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Digital Daily Units</title>
-<meta name="description" content="Estimated daily iTunes song sales for the US, Canada, UK, Australia and Brazil. Top 100 charts with movement, peaks and days on chart, updated every hour.">
+<meta name="description" content="Estimated daily iTunes song sales for the US, Canada, UK, Australia and Brazil. Top 100 charts with movement, peaks and days on chart, updated every 30 minutes.">
 <meta property="og:title" content="Digital Daily Units">
-<meta property="og:description" content="Estimated daily iTunes song sales, top 100 in five countries, updated every hour.">
+<meta property="og:description" content="Estimated daily iTunes song sales, top 100 in five countries, updated every 30 minutes.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#121a2e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232457ff'/%3E%3Crect x='13' y='34' width='9' height='17' rx='2' fill='%23fff'/%3E%3Crect x='27.5' y='24' width='9' height='27' rx='2' fill='%23fff'/%3E%3Crect x='42' y='13' width='9' height='38' rx='2' fill='%23fff'/%3E%3C/svg%3E">
@@ -16,7 +16,7 @@
 /* Layout: brand bar with next-update countdown, dark masthead with country switcher, a #1 feature block, then a ranked list with movement, last, peak and days. */
 :root {
   --bg: #f3f4f7; --surface: #ffffff; --fg: #121826; --muted: #5d6676; --line: #dde1e8;
-  --mast-bg: #121a2e; --mast-fg: #f2f5fb; --mast-muted: #9aa6bf; --mast-line: #2a3654; --mast-chip: #1c2742;
+  --mast-bg: #121a2e; --mast-fg: #f2f5fb; --mast-muted: #9aa6bf; --mast-line: #2a3654; --mast-chip: #1c2742; --mast-warn: #ffd166;
   --accent: #2457ff; --accent-ink: #ffffff; --bar: #d9e2ff;
   --up: #12805c; --down: #c23b2e; --same: #8a93a3;
   --new-bg: #ffe9a8; --new-fg: #5c4300; --re-bg: #dfe8ff; --re-fg: #1b3a9c;
@@ -29,7 +29,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0c111c; --surface: #141b2b; --fg: #e9edf5; --muted: #98a3b8; --line: #263148;
-    --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33;
+    --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33; --mast-warn: #ffd166;
     --accent: #6f93ff; --accent-ink: #0a1230; --bar: #26376b;
     --up: #3fcf9b; --down: #ff7a6b; --same: #7a859a;
     --new-bg: #4a3a0d; --new-fg: #ffe08a; --re-bg: #1f2e5e; --re-fg: #b9ccff;
@@ -39,7 +39,7 @@
 }
 :root[data-theme="dark"] {
   --bg: #0c111c; --surface: #141b2b; --fg: #e9edf5; --muted: #98a3b8; --line: #263148;
-  --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33;
+  --mast-bg: #0a0f1b; --mast-fg: #f2f5fb; --mast-muted: #8f9bb4; --mast-line: #222c44; --mast-chip: #151e33; --mast-warn: #ffd166;
   --accent: #6f93ff; --accent-ink: #0a1230; --bar: #26376b;
   --up: #3fcf9b; --down: #ff7a6b; --same: #7a859a;
   --new-bg: #4a3a0d; --new-fg: #ffe08a; --re-bg: #1f2e5e; --re-fg: #b9ccff;
@@ -62,8 +62,7 @@ body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--fo
 .clock svg { width: 30px; height: 30px; flex: none; transform: rotate(-90deg); }
 .clock .ring-bg { fill: none; stroke: var(--mast-line); stroke-width: 4; }
 .clock .ring { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; transition: stroke-dashoffset 0.9s linear; }
-.clock.busy .ring { animation: spin 1.2s linear infinite; transform-origin: 50% 50%; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.clock .s.late { color: var(--mast-warn); }
 .clock .l { font-family: var(--font-display); font-weight: 700; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mast-muted); }
 .clock .v { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 500; line-height: 1.05; }
 .clock .s { font-size: 11px; color: var(--mast-muted); }
@@ -148,7 +147,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   .st { text-align: left; font-size: 12px; }
   .st::before { content: attr(data-l) " "; font-family: var(--font-display); font-weight: 700; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 }
-@media (prefers-reduced-motion: reduce) { .clock .ring { transition: none; } .clock.busy .ring { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .clock .ring { transition: none; } }
 </style>
 </head>
 <body>
@@ -157,7 +156,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     <div class="brandbar">
       <a class="brand" href="#">
         <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="var(--accent)"/><rect x="13" y="34" width="9" height="17" rx="2" fill="#fff"/><rect x="27.5" y="24" width="9" height="27" rx="2" fill="#fff"/><rect x="42" y="13" width="9" height="38" rx="2" fill="#fff"/></svg>
-        <div class="word">Digital Daily <span>Units</span><span class="tagline">Estimated iTunes song sales, updated every hour</span></div>
+        <div class="word">Digital Daily <span>Units</span><span class="tagline">Estimated iTunes song sales, updated every 30 minutes</span></div>
       </a>
       <div class="clock" id="clock" role="timer" aria-live="off">
         <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="ring-bg" cx="18" cy="18" r="15"/><circle class="ring" id="ring" cx="18" cy="18" r="15" stroke-dasharray="94.25" stroke-dashoffset="0"/></svg>
@@ -192,7 +191,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
 
 <footer class="inner">
   <div class="fb">Digital Daily Units</div>
-  <p>Chart positions come from Apple's iTunes Store song charts. Sales figures are estimates worked out from chart position, not reported sales. Last, peak and days count from the day this site started tracking.</p>
+  <p>Chart positions come from Apple's iTunes Store song charts. Sales figures are estimates worked out from each song's chart positions over the last 24 hours, not reported sales. Last, peak and days count from the day this site started tracking.</p>
   <p>Not affiliated with Apple. iTunes is a trademark of Apple Inc. Cover art belongs to its owners.</p>
   <p id="copy"></p>
 </footer>
@@ -200,9 +199,10 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
 <script>
 (function () {
   /* ---- settings ---- */
-  var A = 4636, B = 0.68;                 // estimate = A × rank^-B × country scale
-  var UPDATE_MINUTE = 7;                  // the site updates at this minute past every hour (matches update.yml)
-  var LATE_LIMIT_MIN = 20;                // stop waiting for an update this many minutes after it was due
+  var A = 4636, B = 0.68;                 // only used if data.json has no sales numbers (they come from fetch_charts.py)
+  var UPDATE_MINUTES = [7, 37];           // the site updates at these minutes past every hour (matches update.yml)
+  var CHECK_FOR_MIN = 30;                 // after each scheduled time, quietly check for new data for this long
+  var LATE_AFTER_MIN = 65;                // say the update is running late once the data is older than this
   var MARKETS = {
     us: { code: "US", name: "United States", scale: 1 },
     ca: { code: "CA", name: "Canada", scale: 0.11 },
@@ -212,6 +212,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   };
 
   function estimate(rank, scale) { return Math.round(A * Math.pow(rank, -B) * scale); }
+  function salesOf(song, rank, scale) { return typeof song.sales === "number" ? song.sales : estimate(rank, scale); }
   function num(n) { return n.toLocaleString("en-US"); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 
@@ -299,7 +300,8 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     var d = data && data.markets && data.markets[key];
     if (!d) { noticeEl.textContent = "No chart data for this country yet."; noticeEl.hidden = false; return; }
 
-    var songs = d.songs, max = estimate(1, m.scale), first = songs[0];
+    var songs = d.songs, first = songs[0];
+    var max = Math.max.apply(null, songs.map(function (s, i) { return salesOf(s, i + 1, m.scale); }).concat([1]));
     if (first) {
       heroEl.hidden = false;
       heroEl.appendChild(cover(first, 300));
@@ -310,7 +312,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       body.appendChild(el("h2", "", first.title));
       body.appendChild(el("p", "artist", first.artist));
       var hs = el("div", "hero-stats");
-      [["Est. sales, 24 hours", num(estimate(1, m.scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
+      [["Est. sales, 24 hours", num(salesOf(first, 1, m.scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
         var s = el("div", "stat"); s.appendChild(el("div", "l", p[0])); s.appendChild(el("div", "v", p[1])); hs.appendChild(s);
       });
       body.appendChild(hs);
@@ -319,7 +321,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     var frag = document.createDocumentFragment();
     songs.forEach(function (s, i) {
       if (i === 0) return;
-      var pos = i + 1, v = estimate(pos, m.scale);
+      var pos = i + 1, v = salesOf(s, pos, m.scale);
       var row = el("div", "row");
       var rk = el("div", "rk"); rk.appendChild(el("div", "n", String(pos))); rk.appendChild(movement(s, pos));
       row.appendChild(rk);
@@ -357,16 +359,20 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (j) {
         var t = j.demo ? Date.now() : Date.parse(j.fetched_at);
-        if (!data || t !== fetchedAt) { data = j; fetchedAt = t; if (typeof j.update_minute === "number") UPDATE_MINUTE = j.update_minute; show(current); }
+        if (Array.isArray(j.update_minutes) && j.update_minutes.length) UPDATE_MINUTES = j.update_minutes.slice().sort(function (a, b) { return a - b; });
+        else if (typeof j.update_minute === "number") UPDATE_MINUTES = [j.update_minute];
+        if (!data || t !== fetchedAt) { data = j; fetchedAt = t; show(current); }
       })
       .catch(function () { if (!data) { noticeEl.textContent = "Could not load the chart data. Try reloading the page in a minute."; noticeEl.hidden = false; } });
   }
 
-  function slotBefore(now) {      // most recent scheduled update time at or before now
-    var d = new Date(now); d.setUTCMinutes(UPDATE_MINUTE, 0, 0);
-    if (d.getTime() > now) d.setUTCHours(d.getUTCHours() - 1);
-    return d.getTime();
+  function slots(now) {           // scheduled update times from the previous hour to the next, in order
+    var out = [], base = new Date(now); base.setUTCMinutes(0, 0, 0);
+    for (var h = -1; h <= 1; h++) UPDATE_MINUTES.forEach(function (m) { out.push(base.getTime() + h * 3600000 + m * 60000); });
+    return out.sort(function (a, b) { return a - b; });
   }
+  function slotBefore(now) { var s = slots(now).filter(function (t) { return t <= now; }); return s[s.length - 1]; }
+  function slotAfter(now) { return slots(now).filter(function (t) { return t > now; })[0]; }
   function two(n) { return (n < 10 ? "0" : "") + n; }
   function ago(ms) {
     var m = Math.round(ms / 60000);
@@ -378,23 +384,19 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   var lastPoll = 0;
   function tick() {
     var now = Date.now();
-    var due = slotBefore(now), next = due + 3600000;
-    var waiting = fetchedAt && fetchedAt < due && (now - due) < LATE_LIMIT_MIN * 60000;
-    if (waiting) {
-      clockEl.classList.add("busy");
-      clockLabel.textContent = "Chart update";
-      clockValue.textContent = "Updating…";
-      ringEl.style.strokeDashoffset = "70";
-      if (now - lastPoll > 30000) { lastPoll = now; load(); }
-    } else {
-      clockEl.classList.remove("busy");
-      var left = Math.max(0, Math.ceil((next - now) / 1000));
-      clockLabel.textContent = "Next chart update";
-      clockValue.textContent = two(Math.floor(left / 60)) + ":" + two(left % 60);
-      ringEl.style.strokeDashoffset = String(94.25 * (left / 3600));
-      if (left === 0) { lastPoll = 0; }
-    }
-    clockSub.textContent = fetchedAt ? "Last updated " + ago(now - fetchedAt) : "";
+    var prev = slotBefore(now), next = slotAfter(now);
+    var left = Math.max(0, Math.ceil((next - now) / 1000)), span = Math.max(1, (next - prev) / 1000);
+    clockLabel.textContent = "Next chart update";
+    clockValue.textContent = two(Math.floor(left / 60)) + ":" + two(left % 60);
+    ringEl.style.strokeDashoffset = String(94.25 * (left / span));
+    // quietly look for the new chart after each scheduled time, since GitHub can start a few minutes late
+    var expecting = fetchedAt && fetchedAt < prev && (now - prev) < CHECK_FOR_MIN * 60000;
+    if (expecting && now - lastPoll > 60000) { lastPoll = now; load(); }
+    if (fetchedAt) {
+      var late = now - fetchedAt > LATE_AFTER_MIN * 60000;
+      clockSub.textContent = "Last updated " + ago(now - fetchedAt) + (late ? " · running late" : "");
+      clockSub.classList.toggle("late", late);
+    } else { clockSub.textContent = ""; }
   }
 
   Object.keys(MARKETS).forEach(function (k) {
