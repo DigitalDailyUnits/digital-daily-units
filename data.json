@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-14T18:37:11Z",
+ "fetched_at": "2026-10-14T18:38:36Z",
  "update_minutes": [
   7,
   37
@@ -7,12 +7,12 @@
  "markets": {
   "us": {
    "source": "sales",
-   "chart_time": "2026-10-14T11:37:11-07:00",
+   "chart_time": "2026-10-14T11:38:36-07:00",
    "songs": [
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero",
-     "sales": 3751,
+     "sales": 3762,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
      "prev": 2,
      "peak": 1,
@@ -23,7 +23,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero (Piano Version)",
-     "sales": 3237,
+     "sales": 3229,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ef/c0/d4/efc0d4c7-557d-e255-849a-ae1c0c3a6ac2/26UM1IM31398.rgb.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -34,7 +34,7 @@
     {
      "artist": "Ella Langley",
      "title": "Choosin' Texas",
-     "sales": 1992,
+     "sales": 1993,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
      "prev": 4,
      "peak": 3,
@@ -45,7 +45,7 @@
     {
      "artist": "Carly Pearce & Riley Green",
      "title": "If I Don't Leave I’m Gonna Stay",
-     "sales": 1774,
+     "sales": 1773,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/48/ce/a2/48cea289-289a-0d95-a67f-e562f804d518/0843930149803.jpg/170x170bb.png",
      "prev": 6,
      "peak": 2,
@@ -78,7 +78,7 @@
     {
      "artist": "DoSha",
      "title": "It Takes A Bitch",
-     "sales": 1140,
+     "sales": 1141,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d8/88/1b/d8881b54-8ff4-78ef-a33e-5137f01f3cab/artwork.jpg/170x170bb.png",
      "prev": 12,
      "peak": 7,
@@ -111,7 +111,7 @@
     {
      "artist": "Patti LaBelle & Michael McDonald",
      "title": "On My Own",
-     "sales": 828,
+     "sales": 830,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f6/70/d7/f670d7c9-7587-8cbf-fed1-9be01f7d3c7b/00076732573723.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 8,
@@ -122,7 +122,7 @@
     {
      "artist": "Staind",
      "title": "Ghosts",
-     "sales": 657,
+     "sales": 661,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/72/40/d4724078-b182-de3a-49f6-9c69f646fbf0/4099964296587.jpg/170x170bb.png",
      "prev": null,
      "peak": 11,
@@ -133,7 +133,7 @@
     {
      "artist": "Morgan Wallen",
      "title": "Last Thing You Need",
-     "sales": 855,
+     "sales": 854,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/d3/1c/5dd31c9c-1e1c-0bbc-104f-4a42e2bb4c59/075679556424.jpg/170x170bb.png",
      "prev": 7,
      "peak": 7,
@@ -144,7 +144,7 @@
     {
      "artist": "Helluva Boss, Bryce Pinkham & Brandon Rogers",
      "title": "Dirty Bird",
-     "sales": 643,
+     "sales": 645,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/ac/d3/c0acd3d3-2eea-3d02-e06d-2497bf7b8fc3/075679556769.jpg/170x170bb.png",
      "prev": null,
      "peak": 11,
@@ -166,7 +166,7 @@
     {
      "artist": "Helluva Boss, Anthony Padilla & ian hecox",
      "title": "I'm Sorry! (Court-Ordered Apology)",
-     "sales": 589,
+     "sales": 591,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/ac/d3/c0acd3d3-2eea-3d02-e06d-2497bf7b8fc3/075679556769.jpg/170x170bb.png",
      "prev": null,
      "peak": 13,
@@ -188,7 +188,7 @@
     {
      "artist": "Maroon 5",
      "title": "She Will Be Loved",
-     "sales": 610,
+     "sales": 611,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d0/3e/25/d03e255d-e205-0e66-20f6-01e251896c25/14UMGIM27076.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 12,
@@ -210,7 +210,7 @@
     {
      "artist": "Brandon Lake & Lainey Wilson",
      "title": "The Jesus I Know Now",
-     "sales": 603,
+     "sales": 602,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3f/82/90/3f8290ba-b6cd-2028-0fc1-844e25bf0389/196874252284.jpg/170x170bb.png",
      "prev": 15,
      "peak": 15,
@@ -243,7 +243,7 @@
     {
      "artist": "Wolf Parade",
      "title": "I'll Believe In Anything",
-     "sales": 590,
+     "sales": 589,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/c6/36/73/c63673cb-f959-0755-727c-df7760baf178/WolfParade_ApologiesToTheQueenMary_1425px.jpg/170x170bb.png",
      "prev": 8,
      "peak": 7,
@@ -265,7 +265,7 @@
     {
      "artist": "Tucker Wetmore",
      "title": "Wind Up Missin’ You",
-     "sales": 457,
+     "sales": 458,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a1/54/e2/a154e275-9a98-3491-26cf-a1c6f3fb4ea1/24UMGIM54949.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 20,
@@ -320,7 +320,7 @@
     {
      "artist": "Marc Atlas",
      "title": "Waste My Time",
-     "sales": 489,
+     "sales": 488,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/b0/66/b8b06683-b734-08eb-eac7-788e63db3358/26SYMIM35305.rgb.jpg/170x170bb.png",
      "prev": 11,
      "peak": 11,
@@ -342,7 +342,7 @@
     {
      "artist": "Stephen Day",
      "title": "You Wouldn't Know",
-     "sales": 370,
+     "sales": 371,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/75/d9/dc/75d9dc73-fbe8-ba62-5cb0-adbbdbd8baa8/820233976039.jpg/170x170bb.png",
      "prev": null,
      "peak": 31,
@@ -386,7 +386,7 @@
     {
      "artist": "Ella Langley & Riley Green",
      "title": "you look like you love me",
-     "sales": 416,
+     "sales": 415,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/33/40/62334080-6129-4d0c-086b-921cc956cb7a/196872090895.jpg/170x170bb.png",
      "prev": 23,
      "peak": 20,
@@ -397,7 +397,7 @@
     {
      "artist": "KATSEYE",
      "title": "Unloveu",
-     "sales": 358,
+     "sales": 359,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6d/e5/12/6de51218-a414-f9ce-abc5-c34496d0b162/26UMGIM41151.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 33,
@@ -408,7 +408,7 @@
     {
      "artist": "Sia",
      "title": "Breathe Me",
-     "sales": 351,
+     "sales": 352,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/68/fd/a8/68fda820-dbb9-d9d1-3c81-c9822e43e4fd/00094634810357.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 32,
@@ -419,7 +419,7 @@
     {
      "artist": "RUSTIC DRIFTER",
      "title": "My Years With You",
-     "sales": 331,
+     "sales": 332,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/92/3f/cd923fbb-21e8-3a9f-fa0f-3c2e47ad4ad1/artwork.jpg/170x170bb.png",
      "prev": 92,
      "peak": 38,
@@ -496,7 +496,7 @@
     {
      "artist": "Tame Impala",
      "title": "Dracula",
-     "sales": 341,
+     "sales": 340,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/be/b4/36beb41f-c644-55cb-9fbb-bf0622a66653/196873644783.jpg/170x170bb.png",
      "prev": 37,
      "peak": 32,
@@ -573,7 +573,7 @@
     {
      "artist": "Anne Wilson",
      "title": "Who I Am To You",
-     "sales": 309,
+     "sales": 308,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5c/5e/8a/5c5e8ab8-8e95-a323-f832-d80ef2fc3b5c/26UM1IM00540.rgb.jpg/170x170bb.png",
      "prev": 35,
      "peak": 33,
@@ -595,7 +595,7 @@
     {
      "artist": "Shunned at a Funeral",
      "title": "Radical",
-     "sales": 263,
+     "sales": 264,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ad/69/3c/ad693c39-5e30-97ea-1159-61da7170d7c7/artwork.jpg/170x170bb.png",
      "prev": null,
      "peak": 54,
@@ -837,7 +837,7 @@
     {
      "artist": "Fontaines D.C. & ROSALÍA",
      "title": "Where Is Gone?",
-     "sales": 271,
+     "sales": 270,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/10/8c/24108c9c-845b-40f3-6175-9effb95e1d5c/191404167373.png/170x170bb.png",
      "prev": 20,
      "peak": 20,
@@ -1090,7 +1090,7 @@
     {
      "artist": "EZ MIL & Eminem",
      "title": "MADARA (feat. Neil Kaplan & Hideyoshi)",
-     "sales": 198,
+     "sales": 197,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8d/d5/b5/8dd5b539-91c6-3edc-86e5-bff612e3d311/26UM1IM22105.rgb.jpg/170x170bb.png",
      "prev": 65,
      "peak": 65,
@@ -1113,7 +1113,7 @@
   },
   "ca": {
    "source": "sales",
-   "chart_time": "2026-10-14T11:37:12-07:00",
+   "chart_time": "2026-10-14T11:38:37-07:00",
    "songs": [
     {
      "artist": "Ella Langley",
@@ -1481,7 +1481,7 @@
     {
      "artist": "Faouzia",
      "title": "UNETHICAL",
-     "sales": 40,
+     "sales": 41,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0e/1e/a3/0e1ea38e-d4fb-7cc0-3a0a-ce53c2cd6184/193436435017_IMG.jpg/170x170bb.png",
      "prev": 78,
      "peak": 30,
@@ -1536,7 +1536,7 @@
     {
      "artist": "Helluva Boss, Bryce Pinkham & Brandon Rogers",
      "title": "Dirty Bird",
-     "sales": 35,
+     "sales": 36,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/ac/d3/c0acd3d3-2eea-3d02-e06d-2497bf7b8fc3/075679556769.jpg/170x170bb.png",
      "prev": null,
      "peak": 39,
@@ -1646,7 +1646,7 @@
     {
      "artist": "Helluva Boss, Anthony Padilla & ian hecox",
      "title": "I'm Sorry! (Court-Ordered Apology)",
-     "sales": 31,
+     "sales": 32,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/ac/d3/c0acd3d3-2eea-3d02-e06d-2497bf7b8fc3/075679556769.jpg/170x170bb.png",
      "prev": null,
      "peak": 40,
@@ -1745,7 +1745,7 @@
     {
      "artist": "Harry Styles",
      "title": "Sign of the Times",
-     "sales": 28,
+     "sales": 29,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3d/5e/aa/3d5eaaa3-9a86-c264-5cd5-7fac83f99a59/886446451978.jpg/170x170bb.png",
      "prev": 96,
      "peak": 58,
@@ -2219,7 +2219,7 @@
   },
   "uk": {
    "source": "sales",
-   "chart_time": "2026-10-14T11:37:13-07:00",
+   "chart_time": "2026-10-14T11:38:38-07:00",
    "songs": [
     {
      "artist": "Jamie Miller",
@@ -2257,7 +2257,7 @@
     {
      "artist": "Fontaines D.C. & ROSALÍA",
      "title": "Where Is Gone?",
-     "sales": 264,
+     "sales": 263,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/10/8c/24108c9c-845b-40f3-6175-9effb95e1d5c/191404167373.png/170x170bb.png",
      "prev": 2,
      "peak": 2,
@@ -2268,7 +2268,7 @@
     {
      "artist": "Imael Angel",
      "title": "BAD TIMES",
-     "sales": 194,
+     "sales": 195,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/ad/da/d5adda6b-65f4-755a-05ab-f33a4e0e4cdd/artwork.jpg/170x170bb.png",
      "prev": 10,
      "peak": 5,
@@ -2411,7 +2411,7 @@
     {
      "artist": "Dua Lipa",
      "title": "Training Season",
-     "sales": 88,
+     "sales": 89,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/82/89/15/828915ea-d716-61c4-3de7-ef00c1f800fb/5054197853630.jpg/170x170bb.png",
      "prev": 20,
      "peak": 17,
@@ -2697,7 +2697,7 @@
     {
      "artist": "Chase & Status",
      "title": "Gone Too Far (feat. Debbie)",
-     "sales": 43,
+     "sales": 44,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2e/ab/0c/2eab0c4f-68b1-2427-6e23-47ef81bfbbbb/1200214837747.jpg/170x170bb.png",
      "prev": 85,
      "peak": 42,
@@ -2796,7 +2796,7 @@
     {
      "artist": "Nothing But Thieves",
      "title": "Baby Kool (Evelyn)",
-     "sales": 38,
+     "sales": 39,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1a/4e/b9/1a4eb90b-e7a3-e79a-a133-0be9324213db/196874245224.jpg/170x170bb.png",
      "prev": 79,
      "peak": 53,
@@ -3325,7 +3325,7 @@
   },
   "au": {
    "source": "sales",
-   "chart_time": "2026-10-14T11:37:13-07:00",
+   "chart_time": "2026-10-14T11:38:39-07:00",
    "songs": [
     {
      "artist": "HUGEL, Imael Angel & Ultra Naté",
@@ -4023,7 +4023,7 @@
     {
      "artist": "Lynyrd Skynyrd",
      "title": "Free Bird",
-     "sales": 14,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/57/00/f3/5700f331-2d06-7f5d-cb98-43970fd52874/14UMGIM00860.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 64,
@@ -4431,12 +4431,23 @@
   },
   "br": {
    "source": "sales",
-   "chart_time": "2026-10-14T11:37:14-07:00",
+   "chart_time": "2026-10-14T11:38:40-07:00",
    "songs": [
+    {
+     "artist": "FirstOne",
+     "title": "8/7",
+     "sales": 149,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/47/9f/e2/479fe231-6636-1e11-eb7a-e6055464fd8d/0840517271087_Cover.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 1,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
     {
      "artist": "Racionais MC's",
      "title": "Sou + Você",
-     "sales": 216,
+     "sales": 162,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3f/ca/fd/3fcafdad-07c1-c752-7878-39dfd32b3b28/0.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -4447,7 +4458,7 @@
     {
      "artist": "Mundo Bita",
      "title": "Fazendinha",
-     "sales": 126,
+     "sales": 105,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/5a/89/92/5a899238-c283-3946-c75a-34beacadfe08/886444815758.jpg/170x170bb.png",
      "prev": 6,
      "peak": 2,
@@ -4458,7 +4469,7 @@
     {
      "artist": "Wolf Parade",
      "title": "I'll Believe In Anything",
-     "sales": 91,
+     "sales": 79,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/c6/36/73/c63673cb-f959-0755-727c-df7760baf178/WolfParade_ApologiesToTheQueenMary_1425px.jpg/170x170bb.png",
      "prev": null,
      "peak": 3,
@@ -4469,7 +4480,7 @@
     {
      "artist": "Panda & MJ Records",
      "title": "Eu Te Seguro (Ao Vivo)",
-     "sales": 76,
+     "sales": 68,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/62/ec/58/62ec58ca-872b-d85a-255b-3236eb61d7b6/196873588636.jpg/170x170bb.png",
      "prev": null,
      "peak": 3,
@@ -4480,7 +4491,7 @@
     {
      "artist": "KATSEYE",
      "title": "Unloveu (Clean Edit)",
-     "sales": 67,
+     "sales": 62,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9c/c0/86/9cc0868d-f076-c94f-524d-45571eef6dc5/26UM1IM26353.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 4,
@@ -4490,8 +4501,19 @@
     },
     {
      "artist": "Taylor Swift",
+     "title": "Patient Zero",
+     "sales": 51,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
+     "prev": 5,
+     "peak": 5,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
+     "artist": "Taylor Swift",
      "title": "Patient Zero (Piano Version)",
-     "sales": 81,
+     "sales": 74,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ef/c0/d4/efc0d4c7-557d-e255-849a-ae1c0c3a6ac2/26UM1IM31398.rgb.jpg/170x170bb.png",
      "prev": 2,
      "peak": 1,
@@ -4500,9 +4522,20 @@
      "re": false
     },
     {
+     "artist": "Felipe e Rodrigo",
+     "title": "Pós (Ao Vivo)",
+     "sales": 39,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/ac/80/55ac8010-26ff-2719-6218-e5419e64b127/1200220202775.jpg/170x170bb.png",
+     "prev": 33,
+     "peak": 9,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Netinho",
      "title": "Milla (Ao Vivo)",
-     "sales": 55,
+     "sales": 47,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/73/ce/0a/73ce0abf-4183-0909-14eb-6a004d7f62da/00602557439489.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 4,
@@ -4513,7 +4546,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero (Acoustic Version)",
-     "sales": 59,
+     "sales": 52,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/d9/ad/66d9ad66-7a21-5de5-bad0-3130997a7057/26UM1IM31399.rgb.jpg/170x170bb.png",
      "prev": 3,
      "peak": 3,
@@ -4524,7 +4557,7 @@
     {
      "artist": "Chris Isaak",
      "title": "Wicked Game",
-     "sales": 44,
+     "sales": 38,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/67/e9/0f/67e90f2d-c229-3572-5f0f-d615dfeaa652/00792755800553_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 9,
@@ -4535,7 +4568,7 @@
     {
      "artist": "Decão Renovado",
      "title": "Bom Dia Com Jesus",
-     "sales": 41,
+     "sales": 36,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/48/74/c2/4874c28b-6a98-7049-074b-7af458c35277/0.jpg/170x170bb.png",
      "prev": null,
      "peak": 8,
@@ -4546,7 +4579,7 @@
     {
      "artist": "Akon",
      "title": "Sorry, Blame It On Me",
-     "sales": 36,
+     "sales": 32,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/1a/8e/f6/1a8ef635-e359-c8d6-bee3-7a720c56e52a/21UMGIM80636.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 11,
@@ -4555,12 +4588,23 @@
      "re": false
     },
     {
-     "artist": "FirstOne",
-     "title": "8/7",
-     "sales": 31,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/47/9f/e2/479fe231-6636-1e11-eb7a-e6055464fd8d/0840517271087_Cover.jpg/170x170bb.png",
+     "artist": "Netinho",
+     "title": "Capricho Dos Deuses",
+     "sales": 28,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ad/df/e6/addfe63a-4604-7b86-feb8-5343d6555f88/06UMGIM41197.rgb.jpg/170x170bb.png",
      "prev": null,
-     "peak": 12,
+     "peak": 15,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
+     "artist": "Olivia Rodrigo",
+     "title": "expectations",
+     "sales": 27,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/1b/f9/1d1bf9b1-44c6-9a6c-6ffb-c158488c06ce/26UMGIM39303.rgb.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 16,
      "days": 1,
      "new": false,
      "re": false
@@ -4568,7 +4612,7 @@
     {
      "artist": "Cinematic Symphony Orchestra",
      "title": "Harry Potter - Hedwig's Theme",
-     "sales": 41,
+     "sales": 37,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4e/13/65/4e13653d-affc-93c5-2249-5785402b54b8/199999402862.png/170x170bb.png",
      "prev": 7,
      "peak": 5,
@@ -4577,20 +4621,9 @@
      "re": false
     },
     {
-     "artist": "Taylor Swift",
-     "title": "Patient Zero",
-     "sales": 37,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
-     "prev": 5,
-     "peak": 5,
-     "days": 2,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "RÜFÜS DU SOL",
      "title": "Innerbloom",
-     "sales": 31,
+     "sales": 29,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/aa/5f/d8/aa5fd889-4c2e-7e24-e8b2-428beaf9d4fe/SWEATA009.jpg/170x170bb.png",
      "prev": 15,
      "peak": 13,
@@ -4601,7 +4634,7 @@
     {
      "artist": "Ark Patrol",
      "title": "Let Go (feat. Veronika Redd)",
-     "sales": 34,
+     "sales": 32,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/40/75/e6/4075e6b2-c884-8f8e-7164-76ca92c802fa/111257.jpg/170x170bb.png",
      "prev": 63,
      "peak": 9,
@@ -4610,20 +4643,9 @@
      "re": false
     },
     {
-     "artist": "Felipe e Rodrigo",
-     "title": "Pós (Ao Vivo)",
-     "sales": 27,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/55/ac/80/55ac8010-26ff-2719-6218-e5419e64b127/1200220202775.jpg/170x170bb.png",
-     "prev": 33,
-     "peak": 17,
-     "days": 2,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "Natiruts & Amani Kush",
      "title": "Tudo Vai Dar Certo",
-     "sales": 31,
+     "sales": 29,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ff/fc/39/fffc39df-1d17-68c7-4446-2b79ce6e3537/886448406990.jpg/170x170bb.png",
      "prev": 64,
      "peak": 10,
@@ -4634,7 +4656,7 @@
     {
      "artist": "I Virtuosi Italiani & Daniel Hope",
      "title": "Experience",
-     "sales": 23,
+     "sales": 22,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/13/fd/7b/13fd7bfd-125a-4493-dc85-96aef9c25562/12UMGIM65023.rgb.jpg/170x170bb.png",
      "prev": 65,
      "peak": 19,
@@ -4645,7 +4667,7 @@
     {
      "artist": "Led Zeppelin",
      "title": "Immigrant Song",
-     "sales": 27,
+     "sales": 26,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/62/fd/14/62fd14aa-d202-a86a-d948-0a5550b35fc3/dj.rkzuiqye.jpg/170x170bb.png",
      "prev": 92,
      "peak": 14,
@@ -4654,9 +4676,31 @@
      "re": false
     },
     {
+     "artist": "Justin Bieber",
+     "title": "Beauty and a Beat (feat. Nicki Minaj)",
+     "sales": 21,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/73/08/1a/73081a96-0f7c-b5f8-2757-5c17fb714323/12UMGIM31899.rgb.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 23,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
+     "artist": "Metallica",
+     "title": "Enter Sandman",
+     "sales": 20,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c6/9b/1d/c69b1ddb-f873-53b4-9fc9-87ca49af2062/21UMGIM48676.rgb.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 24,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Queen",
      "title": "We Will Rock You",
-     "sales": 22,
+     "sales": 20,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3a/25/81/3a258183-09c1-e6ee-b517-258288ca3d03/602527717487.jpg/170x170bb.png",
      "prev": null,
      "peak": 21,
@@ -4667,7 +4711,7 @@
     {
      "artist": "Hans Zimmer",
      "title": "Cornfield Chase",
-     "sales": 26,
+     "sales": 24,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f4/5b/73/f45b735a-8d7a-9713-b217-0f8e1593c28b/794043201943.jpg/170x170bb.png",
      "prev": null,
      "peak": 13,
@@ -4678,7 +4722,7 @@
     {
      "artist": "O Rappa",
      "title": "Anjos (Pra Quem Tem Fé)",
-     "sales": 24,
+     "sales": 23,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/4b/df/de/4bdfde06-22e8-2fb4-a886-2136b8cd8df8/825646415298.jpg/170x170bb.png",
      "prev": null,
      "peak": 14,
@@ -4689,7 +4733,7 @@
     {
      "artist": "Robbie Williams",
      "title": "Sexed Up",
-     "sales": 21,
+     "sales": 19,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/17/5b/aa/175baada-cb64-e3cb-b319-d697208a5e0f/00724354399459.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 24,
@@ -4700,7 +4744,7 @@
     {
      "artist": "Troye Sivan",
      "title": "Party",
-     "sales": 21,
+     "sales": 19,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/e7/92/1be79297-2ced-d845-f3c2-31b30eb2bac2/26UM1IM00508.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 19,
@@ -4711,7 +4755,7 @@
     {
      "artist": "Legião Urbana",
      "title": "Tempo Perdido",
-     "sales": 27,
+     "sales": 25,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/da/72/ed/da72edf4-27c8-2d20-a870-3259f853a866/13UABIM70454.rgb.jpg/170x170bb.png",
      "prev": 12,
      "peak": 8,
@@ -4722,7 +4766,7 @@
     {
      "artist": "Coldplay",
      "title": "Viva la Vida",
-     "sales": 25,
+     "sales": 24,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/56/bc/3d/56bc3d9c-0a4a-0466-643e-eb9bd748e8bf/190295978037.jpg/170x170bb.png",
      "prev": 14,
      "peak": 12,
@@ -4733,7 +4777,7 @@
     {
      "artist": "Imael Angel",
      "title": "Bad Times (Extended Version)",
-     "sales": 24,
+     "sales": 22,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
      "prev": 13,
      "peak": 8,
@@ -4742,9 +4786,20 @@
      "re": false
     },
     {
+     "artist": "Hugo & Guilherme",
+     "title": "Flash (Ao Vivo)",
+     "sales": 17,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7c/07/13/7c0713a7-9103-831f-d541-f68ec91fa8b3/1200214766542.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 33,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "fhop music, Débora Rabelo & Hamilton Rabelo",
      "title": "Tu és + Águas Purificadoras (Ao Vivo)",
-     "sales": 22,
+     "sales": 21,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ed/cd/0f/edcd0fd2-9e6e-2b2f-df78-82d2cad55702/085365276529.jpg/170x170bb.png",
      "prev": null,
      "peak": 14,
@@ -4753,9 +4808,20 @@
      "re": false
     },
     {
+     "artist": "Michael Jackson",
+     "title": "Beat It",
+     "sales": 16,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 35,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
      "artist": "Ben Morfitt (SquidPhysics)",
      "title": "GTA San Andreas Theme",
-     "sales": 21,
+     "sales": 20,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/eb/3b/e2/eb3be273-f570-508b-24e5-aa30e23a2a7e/ea64b48e-db9a-4a03-a64c-027e89a1790b.jpg/170x170bb.png",
      "prev": null,
      "peak": 15,
@@ -4766,7 +4832,7 @@
     {
      "artist": "Zezé Di Camargo & Luciano",
      "title": "Pão de Mel",
-     "sales": 17,
+     "sales": 16,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3c/c4/26/3cc42693-9d7b-d515-f9db-4f9934c22883/mzi.mnfvkgfk.jpg/170x170bb.png",
      "prev": null,
      "peak": 31,
@@ -4777,7 +4843,7 @@
     {
      "artist": "Mc João",
      "title": "Baile de Favela",
-     "sales": 17,
+     "sales": 16,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/b5/6f/74/b56f749c-351b-2b45-b7cb-4fda24c3634a/00718207672639_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 32,
@@ -4788,7 +4854,7 @@
     {
      "artist": "Zezé Di Camargo & Luciano",
      "title": "Sem Medo de Ser Feliz",
-     "sales": 22,
+     "sales": 21,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3c/c4/26/3cc42693-9d7b-d515-f9db-4f9934c22883/mzi.mnfvkgfk.jpg/170x170bb.png",
      "prev": 88,
      "peak": 12,
@@ -4799,7 +4865,7 @@
     {
      "artist": "Adventure Time",
      "title": "Island Song (Come Along with Me) [feat. Ashley Eriksson]",
-     "sales": 20,
+     "sales": 19,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e0/c2/db/e0c2db75-9c16-9a24-83a3-ace201149183/859728227912.jpg/170x170bb.png",
      "prev": null,
      "peak": 17,
@@ -4810,7 +4876,7 @@
     {
      "artist": "Guns N' Roses",
      "title": "Knockin' On Heaven's Door (2022 Remaster)",
-     "sales": 16,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/ae/65/cd/ae65cd51-43cd-6b48-a296-b964ee7c982c/22UMGIM95049.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 35,
@@ -4821,7 +4887,7 @@
     {
      "artist": "Mc Jacaré, MC Ryan SP & Mc IG",
      "title": "Pau Pra Toda Obra (feat. Mc Lele JP)",
-     "sales": 22,
+     "sales": 20,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a6/d0/91/a6d09155-8968-8d6c-cfc2-66be355dd739/26UMGIM79846.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 7,
@@ -4830,9 +4896,20 @@
      "re": false
     },
     {
+     "artist": "Patati Patatá",
+     "title": "Superfantástico",
+     "sales": 14,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/96/43/8f/96438f81-c10b-e5b6-59d2-9bcd7c97b438/646809689901.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 43,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
      "artist": "Nico & Vinz",
      "title": "Am I Wrong",
-     "sales": 21,
+     "sales": 20,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/38/35/35/38353599-968c-26b8-4dee-8f20ebee46d1/093624932772.jpg/170x170bb.png",
      "prev": null,
      "peak": 8,
@@ -4841,9 +4918,31 @@
      "re": false
     },
     {
+     "artist": "Ed Sheeran",
+     "title": "Shape of You",
+     "sales": 14,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/15/e6/e8/15e6e8a4-4190-6a8b-86c3-ab4a51b88288/190295851286.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 45,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
+     "artist": "Shawn Mendes & Camila Cabello",
+     "title": "Señorita",
+     "sales": 14,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/fe/4a/46fe4a39-feb4-7b8b-97b9-0187d49a46bd/19UMGIM53914.rgb.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 46,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
      "artist": "Ana Castela",
      "title": "Olha Onde Eu Tô",
-     "sales": 19,
+     "sales": 17,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d5/31/fb/d531fbc9-6f59-0268-71eb-6da4f5816cba/8447352922390.jpg/170x170bb.png",
      "prev": null,
      "peak": 20,
@@ -4854,7 +4953,7 @@
     {
      "artist": "Cássia Eller",
      "title": "O Segundo Sol",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/db/52/7d/db527dbd-5aed-c47d-6fc0-41fad6aaf78e/06UMGIM60029.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 39,
@@ -4865,7 +4964,7 @@
     {
      "artist": "Cássia Eller",
      "title": "Malandragem",
-     "sales": 16,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/55/3d/8e/553d8ebb-2134-1e7f-4eb2-3a43f5ad3e19/00602547148766.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 27,
@@ -4876,7 +4975,7 @@
     {
      "artist": "Orquestra e Coro Cid & CID",
      "title": "Hino Do São Paulo (Oficial)",
-     "sales": 17,
+     "sales": 16,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/63/b7/44/63b7449e-50a1-b360-abbd-0ef56771079c/7891397060202.png/170x170bb.png",
      "prev": null,
      "peak": 24,
@@ -4885,9 +4984,20 @@
      "re": false
     },
     {
+     "artist": "Kodaline",
+     "title": "All I Want",
+     "sales": 13,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/07/87/90078751-1dbb-3e85-50f0-d8b40e5655aa/886443897267.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 51,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
      "artist": "Netinho",
      "title": "Prefixo de Verão / We Are the World of Carnaval / Um Frevo Novo (Live) [Medley]",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/eb/e5/bc/ebe5bca6-2fa6-f491-8c5c-cb01658814e9/13UAAIM42622.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 32,
@@ -4898,7 +5008,7 @@
     {
      "artist": "Matuê",
      "title": "333",
-     "sales": 17,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9c/ac/95/9cac9567-6ffa-e640-d619-46564733b11f/196874248850.jpg/170x170bb.png",
      "prev": null,
      "peak": 25,
@@ -4909,7 +5019,7 @@
     {
      "artist": "Roxette",
      "title": "Listen To Your Heart",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8f/ec/01/8fec01b5-e27b-8e5f-3c55-8d0b861aca24/190296212901.jpg/170x170bb.png",
      "prev": null,
      "peak": 44,
@@ -4920,7 +5030,7 @@
     {
      "artist": "Paulo Londra",
      "title": "Adán y Eva",
-     "sales": 15,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ca/ba/80/caba8095-1d0a-c5f1-04d7-6053de7baa9e/190296890352.jpg/170x170bb.png",
      "prev": null,
      "peak": 34,
@@ -4929,20 +5039,9 @@
      "re": false
     },
     {
-     "artist": "Netinho",
-     "title": "Capricho Dos Deuses",
-     "sales": 16,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ad/df/e6/addfe63a-4604-7b86-feb8-5343d6555f88/06UMGIM41197.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 27,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "Tabata Songs",
      "title": "Rocky (Tabata)",
-     "sales": 16,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/3a/e5/ac/3ae5ac4c-e87f-ebd9-2715-3a4f1a0b7dfd/859732473213_cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 22,
@@ -4953,7 +5052,7 @@
     {
      "artist": "LUM!X",
      "title": "Self Aware (Remix)",
-     "sales": 16,
+     "sales": 15,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ff/5f/95/ff5f9526-b62b-3977-0018-6c671b6d45c5/3377337.jpg/170x170bb.png",
      "prev": null,
      "peak": 23,
@@ -4962,20 +5061,9 @@
      "re": false
     },
     {
-     "artist": "Olivia Rodrigo",
-     "title": "expectations",
-     "sales": 15,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/1b/f9/1d1bf9b1-44c6-9a6c-6ffb-c158488c06ce/26UMGIM39303.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 30,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "Davi Dantas",
      "title": "Flavio Bolsonaro - Quem ficar parado é petista disfarçado",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9d/67/3e/9d673e40-2777-6b38-e4de-958a2e408332/artwork.jpg/170x170bb.png",
      "prev": null,
      "peak": 31,
@@ -4986,7 +5074,7 @@
     {
      "artist": "Flávio Bolsonaro",
      "title": "Tropa do Capitão",
-     "sales": 25,
+     "sales": 24,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/34/63/57/346357bd-2a11-7bdb-19ea-b40b5ea9f159/7891162384694.png/170x170bb.png",
      "prev": 4,
      "peak": 4,
@@ -4997,7 +5085,7 @@
     {
      "artist": "Robbie Williams",
      "title": "Angels",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cf/86/e7/cf86e787-2177-6366-a5c3-2180c3031015/13ULAIM49472.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 26,
@@ -5008,7 +5096,7 @@
     {
      "artist": "dj nand",
      "title": "22 é Bolsonaro (feat. Fabio Dub)",
-     "sales": 17,
+     "sales": 16,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ac/27/40/ac27409b-587d-7578-9183-f26b613e568b/artwork.jpg/170x170bb.png",
      "prev": 16,
      "peak": 15,
@@ -5028,9 +5116,20 @@
      "re": false
     },
     {
+     "artist": "João Gustavo e Murilo & Grelo",
+     "title": "Postinho de Gasolina",
+     "sales": 13,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/da/e5/90dae5bf-d2e5-0d0f-2a66-5007df7d1768/3778128.jpg/170x170bb.png",
+     "prev": 30,
+     "peak": 27,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Henrique & Juliano",
      "title": "Cuida Bem Dela (Ao Vivo)",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b7/41/9c/b7419cae-9f05-be20-46f3-ac901e027c73/00602438992638_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 39,
@@ -5041,7 +5140,7 @@
     {
      "artist": "Lost Frequencies & Tom Odell",
      "title": "Black Friday (pretty like the sun)",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/39/a7/49/39a749b9-f198-58ea-2198-a214d6c168b7/00198704029172_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 34,
@@ -5052,7 +5151,7 @@
     {
      "artist": "Sirena De Policía",
      "title": "Sirena De Policía",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/62/45/15/62451559-6168-2749-dd68-6bf6139c6176/859709954059_cover.tif/170x170bb.png",
      "prev": 40,
      "peak": 32,
@@ -5072,9 +5171,20 @@
      "re": false
     },
     {
+     "artist": "Kemuel",
+     "title": "Oh Quão Lindo Esse Nome É (What a Beautiful Name) [Sony Music Live]",
+     "sales": 12,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/1c/0b/7b1c0b96-02b5-28f0-3e3c-4857680141df/886448538080.jpg/170x170bb.png",
+     "prev": 42,
+     "peak": 38,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Indila",
      "title": "Love Story",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/49/58/30/49583018-308b-431d-c691-4a28e78be8cd/14UMGIM01109.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 34,
@@ -5085,7 +5195,7 @@
     {
      "artist": "BTS",
      "title": "SWIM",
-     "sales": 15,
+     "sales": 14,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/a2/b4/e0a2b443-7969-b57a-a591-cb6172c10aa7/198704943959_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 13,
@@ -5096,7 +5206,7 @@
     {
      "artist": "Piero da Vinci & Fr4nk Cr4nk",
      "title": "Baile De Favela (Remix)",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/be/d0/42/bed04271-be59-4ac6-14d8-b86b3465409f/198001505812.png/170x170bb.png",
      "prev": null,
      "peak": 36,
@@ -5105,9 +5215,31 @@
      "re": false
     },
     {
+     "artist": "Shakira & Burna Boy",
+     "title": "Dai Dai",
+     "sales": 11,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/49/8d/61498ded-f0dc-227d-cd1d-2051b5d9f195/196874328590.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 46,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
+     "artist": "Cyndi Lauper",
+     "title": "Girls Just Want to Have Fun",
+     "sales": 11,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8a/8c/13/8a8c13e0-06af-1710-7b7d-ebec65fb8361/074643893022.jpg/170x170bb.png",
+     "prev": 52,
+     "peak": 49,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Felipe Rodrigues",
      "title": "Tudo É Perda (Ao Vivo)",
-     "sales": 13,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/79/5a/12/795a12db-dd37-737d-a55a-ac7fb5533561/5026854389721.jpg/170x170bb.png",
      "prev": 60,
      "peak": 37,
@@ -5118,7 +5250,7 @@
     {
      "artist": "AC/DC",
      "title": "Highway to Hell",
-     "sales": 13,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b9/c8/ef/b9c8ef42-bbc9-64df-11f8-717571f6730f/886443673458.jpg/170x170bb.png",
      "prev": 70,
      "peak": 39,
@@ -5127,9 +5259,20 @@
      "re": false
     },
     {
+     "artist": "Survivor",
+     "title": "Eye of the Tiger",
+     "sales": 11,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f9/02/8f/f9028f63-7a55-235e-f789-1e8946430fa2/614223201122.jpg/170x170bb.png",
+     "prev": 71,
+     "peak": 68,
+     "days": 2,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Choice, L.O.R.D., Sant, Tiago Mac, Salve Malak & Maria",
      "title": "Poesia Acústica #3: Capricorniana",
-     "sales": 13,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/73/39/34733949-b542-ff98-d8f4-8a285739173f/198588243640.jpg/170x170bb.png",
      "prev": 77,
      "peak": 50,
@@ -5138,9 +5281,20 @@
      "re": false
     },
     {
+     "artist": "Aretha Franklin",
+     "title": "I Say a Little Prayer",
+     "sales": 11,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7c/f9/f4/7cf9f44b-f47e-224b-1b40-bcdf1f9bcbbb/603497896653.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 78,
+     "days": 1,
+     "new": false,
+     "re": false
+    },
+    {
      "artist": "Harry Styles",
      "title": "Sign of the Times",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3d/5e/aa/3d5eaaa3-9a86-c264-5cd5-7fac83f99a59/886446451978.jpg/170x170bb.png",
      "prev": 79,
      "peak": 16,
@@ -5151,7 +5305,7 @@
     {
      "artist": "Legião Urbana",
      "title": "Índios",
-     "sales": 13,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/da/72/ed/da72edf4-27c8-2d20-a870-3259f853a866/13UABIM70454.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 41,
@@ -5162,7 +5316,7 @@
     {
      "artist": "Whitesnake",
      "title": "Is This Love (2017 Remaster)",
-     "sales": 12,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b0/67/dd/b067dd4b-7aca-9538-5034-62bafa832300/24CRGIM47909.rgb.jpg/170x170bb.png",
      "prev": 98,
      "peak": 59,
@@ -5173,7 +5327,7 @@
     {
      "artist": "Black Sabbath",
      "title": "War Pigs / Luke's Wall (2012 - Remaster)",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/74/16/93741672-cedb-1850-dcd9-113a374336d6/4050538642872.jpg/170x170bb.png",
      "prev": null,
      "peak": 18,
@@ -5184,7 +5338,7 @@
     {
      "artist": "Ace of Base",
      "title": "Happy Nation",
-     "sales": 12,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/53/79/51/537951b2-76b0-f1a9-2bb8-50625266af7c/cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 44,
@@ -5195,7 +5349,7 @@
     {
      "artist": "Netinho",
      "title": "Fim de Semana",
-     "sales": 11,
+     "sales": 10,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/eb/e5/bc/ebe5bca6-2fa6-f491-8c5c-cb01658814e9/13UAAIM42622.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 62,
@@ -5206,7 +5360,7 @@
     {
      "artist": "Christina Perri",
      "title": "A Thousand Years",
-     "sales": 13,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f5/2e/83/f52e8357-9cf4-e644-c365-3c21839f85ac/mzi.staekbjw.jpg/170x170bb.png",
      "prev": null,
      "peak": 19,
@@ -5217,7 +5371,7 @@
     {
      "artist": "Djavan",
      "title": "Um Amor Puro",
-     "sales": 11,
+     "sales": 10,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/ac/8f/92/ac8f92b9-9051-27c6-a8c0-26b429781802/886448538370.jpg/170x170bb.png",
      "prev": null,
      "peak": 72,
@@ -5228,7 +5382,7 @@
     {
      "artist": "Black Sabbath",
      "title": "Iron Man (2012 - Remaster)",
-     "sales": 12,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/74/16/93741672-cedb-1850-dcd9-113a374336d6/4050538642872.jpg/170x170bb.png",
      "prev": null,
      "peak": 46,
@@ -5237,25 +5391,25 @@
      "re": false
     },
     {
-     "artist": "Justin Bieber",
-     "title": "Beauty and a Beat (feat. Nicki Minaj)",
-     "sales": 12,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/bd/89/97/bd89971c-fc5a-47dd-5e90-a433d1b9e11f/12UMGIM31898.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 47,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "Festa do Lula & DJ Fábio ACM",
      "title": "Lula Lá no Funk 150 Bpm",
-     "sales": 12,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/d9/2a/33/d92a332a-6acb-4a29-e30f-adcbc788362f/0.jpg/170x170bb.png",
      "prev": null,
      "peak": 48,
      "days": 1,
      "new": false,
+     "re": false
+    },
+    {
+     "artist": "Queen",
+     "title": "I Want To Break Free",
+     "sales": 10,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/38/5c/34385cb8-81bf-5c7f-993d-103bcf4a7cfa/602527717661.jpg/170x170bb.png",
+     "prev": null,
+     "peak": 89,
+     "days": 1,
+     "new": true,
      "re": false
     },
     {
@@ -5270,9 +5424,20 @@
      "re": false
     },
     {
+     "artist": "Fontaines D.C. & ROSALÍA",
+     "title": "Where Is Gone?",
+     "sales": 10,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/10/8c/24108c9c-845b-40f3-6175-9effb95e1d5c/191404167373.png/170x170bb.png",
+     "prev": null,
+     "peak": 91,
+     "days": 1,
+     "new": true,
+     "re": false
+    },
+    {
      "artist": "Bryan Adams",
      "title": "Heaven",
-     "sales": 12,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/67/10/6b/67106b63-8edc-ef66-78f2-ad85b275074f/06UMGIM28735.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 49,
@@ -5305,7 +5470,7 @@
     {
      "artist": "Orquestra e Coro Cid & CID",
      "title": "Hino Do Flamengo (Hino Oficial)",
-     "sales": 11,
+     "sales": 10,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/49/bf/43/49bf43dc-19e2-c20b-3dea-67c85b853e90/7891397001120.png/170x170bb.png",
      "prev": null,
      "peak": 52,
@@ -5314,20 +5479,9 @@
      "re": false
     },
     {
-     "artist": "Metallica",
-     "title": "Enter Sandman",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c6/9b/1d/c69b1ddb-f873-53b4-9fc9-87ca49af2062/21UMGIM48676.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 81,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
      "artist": "Ami$h",
      "title": "Bom Dia Cr7",
-     "sales": 11,
+     "sales": 10,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6c/c7/44/6cc74493-dd7b-6902-2fa8-9d7107e25ca2/054853863992.png/170x170bb.png",
      "prev": null,
      "peak": 53,
@@ -5349,7 +5503,7 @@
     {
      "artist": "Travis Scott",
      "title": "goosebumps",
-     "sales": 11,
+     "sales": 10,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/50/f7/a3/50f7a39d-3bd5-28e9-0264-532f08b5b810/886446074726.jpg/170x170bb.png",
      "prev": null,
      "peak": 64,
@@ -5360,7 +5514,7 @@
     {
      "artist": "Taylor Swift",
      "title": "The Fate of Ophelia",
-     "sales": 14,
+     "sales": 13,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/58/8f/a9/588fa9a2-7cc5-f02c-9ce6-c986e0dc1c15/25UM1IM19577.rgb.jpg/170x170bb.png",
      "prev": 21,
      "peak": 13,
@@ -5369,168 +5523,14 @@
      "re": false
     },
     {
-     "artist": "Whitney Houston",
-     "title": "I Wanna Dance With Somebody (2000 Remaster)",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/6f/c1/0a/6fc10af1-5c33-bb2a-feeb-aad54d3a63da/886971770124.jpg/170x170bb.png",
+     "artist": "Fabio Dub",
+     "title": "Agora É Flávio Bolsonaro",
+     "sales": 9,
+     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c9/92/59/c992590a-933d-3c3c-7bb8-0b78be657d1c/859737936003_cover.jpg/170x170bb.png",
      "prev": null,
-     "peak": 76,
+     "peak": 100,
      "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "BTS",
-     "title": "Into the Sun",
-     "sales": 11,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/a2/b4/e0a2b443-7969-b57a-a591-cb6172c10aa7/198704943959_Cover.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 66,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "U2",
-     "title": "One",
-     "sales": 11,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4f/9f/ec/4f9fec15-fdd4-829d-884e-dacef1567856/17UMGIM01464.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 57,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "System Of A Down",
-     "title": "B.Y.O.B.",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/65/6d/43/656d432b-e59c-361a-c3ad-2e6cccbf4b2d/827969064825.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 69,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Queen",
-     "title": "Love Of My Life (Live At Rock In Rio Festival, 18 January 1985)",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/2e/97/622e97c4-d620-2ae1-2a47-a32e16a01492/602567988847.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 90,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Cazuza",
-     "title": "Exagerado",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4a/64/93/4a64932a-f81d-508e-e3b9-f1a78e0f179f/7891430418229.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 58,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Charlie Brown Jr.",
-     "title": "Só Os Loucos Sabem",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/72/44/9a/72449a90-1808-a105-4820-c76c6861b292/884977333435.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 71,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Slayyyter",
-     "title": "brand new chanel$",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f8/f6/e1/f8f6e1ea-279c-c3a6-df70-37aedab1728b/196874456026.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 93,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Slayyyter",
-     "title": "crank 2",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/df/2a/28/df2a2849-515d-10eb-a66e-b6bcf363a043/196874745991.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 69,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Eminem",
-     "title": "Lose Yourself (Soundtrack Version)",
-     "sales": 11,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/a6/b5/8aa6b52a-d879-72c7-4289-85f8a9e5c535/06UMGIM17280.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 23,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Capital Inicial",
-     "title": "À Sua Maneira",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/37/25/ce/3725cec1-c982-2704-4bef-cbeeb2d3fec6/828765233729.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 60,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Ritchie",
-     "title": "Menina Veneno",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music/94/50/fa/mzi.qrmcncyn.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 61,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Felipe Dylon",
-     "title": "Musa do Verão",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c7/51/f1/c751f1dc-1d72-0287-6ebd-40f66c5e326b/13UABIM34079.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 62,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Charlie Brown Jr.",
-     "title": "Zoio de Lula",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/0d/ea/95/0dea95e0-f5b2-f4cf-3c98-9c1173cbda75/14ULAIM00455.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 77,
-     "days": 1,
-     "new": false,
-     "re": false
-    },
-    {
-     "artist": "Billie Eilish",
-     "title": "CHIHIRO",
-     "sales": 10,
-     "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/9f/69/929f69f1-9977-3a44-d674-11f70c852d1b/24UMGIM36186.rgb.jpg/170x170bb.png",
-     "prev": null,
-     "peak": 78,
-     "days": 1,
-     "new": false,
+     "new": true,
      "re": false
     }
    ]
