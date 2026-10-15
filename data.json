@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T17:07:10Z",
+ "fetched_at": "2026-10-15T17:07:32Z",
  "update_minutes": [
   7,
   37
@@ -7,7 +7,7 @@
  "markets": {
   "us": {
    "source": "sales",
-   "chart_time": "2026-10-15T10:07:10-07:00",
+   "chart_time": "2026-10-15T10:07:33-07:00",
    "songs": [
     {
      "artist": "Staind",
@@ -1113,7 +1113,7 @@
   },
   "ca": {
    "source": "sales",
-   "chart_time": "2026-10-15T10:07:11-07:00",
+   "chart_time": "2026-10-15T10:07:34-07:00",
    "songs": [
     {
      "artist": "Ella Langley",
@@ -2091,7 +2091,7 @@
      "prev": null,
      "peak": 89,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -2168,7 +2168,7 @@
      "prev": null,
      "peak": 96,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -2212,14 +2212,14 @@
      "prev": null,
      "peak": 100,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     }
    ]
   },
   "uk": {
    "source": "sales",
-   "chart_time": "2026-10-15T10:07:12-07:00",
+   "chart_time": "2026-10-15T10:07:35-07:00",
    "songs": [
     {
      "artist": "Jamie Miller",
@@ -2977,7 +2977,7 @@
      "prev": null,
      "peak": 69,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3054,7 +3054,7 @@
      "prev": null,
      "peak": 76,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3076,7 +3076,7 @@
      "prev": null,
      "peak": 78,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3325,7 +3325,7 @@
   },
   "au": {
    "source": "sales",
-   "chart_time": "2026-10-15T10:07:12-07:00",
+   "chart_time": "2026-10-15T10:07:36-07:00",
    "songs": [
     {
      "artist": "HUGEL, Imael Angel & Ultra Naté",
@@ -4431,7 +4431,7 @@
   },
   "br": {
    "source": "sales",
-   "chart_time": "2026-10-15T10:07:13-07:00",
+   "chart_time": "2026-10-15T10:07:37-07:00",
    "songs": [
     {
      "artist": "Racionais MC's",
@@ -4661,7 +4661,7 @@
      "prev": null,
      "peak": 21,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4683,7 +4683,7 @@
      "prev": null,
      "peak": 23,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4694,7 +4694,7 @@
      "prev": null,
      "peak": 24,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4705,7 +4705,7 @@
      "prev": null,
      "peak": 25,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4716,7 +4716,7 @@
      "prev": null,
      "peak": 26,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4727,7 +4727,7 @@
      "prev": null,
      "peak": 27,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4782,7 +4782,7 @@
      "prev": null,
      "peak": 32,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4881,7 +4881,7 @@
      "prev": null,
      "peak": 41,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5310,7 +5310,7 @@
      "prev": null,
      "peak": 80,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5376,7 +5376,7 @@
      "prev": null,
      "peak": 86,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5431,7 +5431,7 @@
      "prev": null,
      "peak": 91,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5530,7 +5530,7 @@
      "prev": null,
      "peak": 100,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     }
    ]
