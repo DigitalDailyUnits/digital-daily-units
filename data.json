@@ -1,5 +1,5 @@
 {
- "fetched_at": "2026-10-15T19:07:09Z",
+ "fetched_at": "2026-10-15T19:11:21Z",
  "update_minutes": [
   7,
   37
@@ -12,7 +12,7 @@
     {
      "artist": "Staind",
      "title": "Ghosts",
-     "sales": 3899,
+     "sales": 3910,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d4/72/40/d4724078-b182-de3a-49f6-9c69f646fbf0/4099964296587.jpg/170x170bb.png",
      "prev": 5,
      "peak": 1,
@@ -23,7 +23,7 @@
     {
      "artist": "Ella Langley",
      "title": "Choosin' Texas",
-     "sales": 3016,
+     "sales": 3015,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
      "prev": 2,
      "peak": 1,
@@ -34,7 +34,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero",
-     "sales": 2445,
+     "sales": 2443,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -45,7 +45,7 @@
     {
      "artist": "DoSha",
      "title": "It Takes A Bitch",
-     "sales": 1631,
+     "sales": 1633,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d8/88/1b/d8881b54-8ff4-78ef-a33e-5137f01f3cab/artwork.jpg/170x170bb.png",
      "prev": 8,
      "peak": 4,
@@ -78,7 +78,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero (Acoustic Version)",
-     "sales": 1214,
+     "sales": 1215,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/d9/ad/66d9ad66-7a21-5de5-bad0-3130997a7057/26UM1IM31399.rgb.jpg/170x170bb.png",
      "prev": 7,
      "peak": 3,
@@ -89,7 +89,7 @@
     {
      "artist": "Imael Angel",
      "title": "BAD TIMES",
-     "sales": 1084,
+     "sales": 1085,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d5/ad/da/d5adda6b-65f4-755a-05ab-f33a4e0e4cdd/artwork.jpg/170x170bb.png",
      "prev": 9,
      "peak": 8,
@@ -111,7 +111,7 @@
     {
      "artist": "Imael Angel",
      "title": "Bad Times (Extended Version)",
-     "sales": 932,
+     "sales": 933,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
      "prev": 11,
      "peak": 8,
@@ -122,7 +122,7 @@
     {
      "artist": "ADÉLA",
      "title": "Nicole Kidman",
-     "sales": 850,
+     "sales": 851,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/77/7b/5d777b87-e796-0b3e-cef6-d37d993dd8fe/26UMGIM82371.rgb.jpg/170x170bb.png",
      "prev": 14,
      "peak": 11,
@@ -133,7 +133,7 @@
     {
      "artist": "RUSTIC DRIFTER",
      "title": "My Years With You",
-     "sales": 759,
+     "sales": 760,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/92/3f/cd923fbb-21e8-3a9f-fa0f-3c2e47ad4ad1/artwork.jpg/170x170bb.png",
      "prev": 25,
      "peak": 12,
@@ -155,7 +155,7 @@
     {
      "artist": "Anberlin",
      "title": "TRENCHES (feat. Switchfoot)",
-     "sales": 652,
+     "sales": 654,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9f/0f/64/9f0f64ae-7d9c-ed4c-254d-f114ad76d454/794558052566.jpg/170x170bb.png",
      "prev": null,
      "peak": 10,
@@ -177,7 +177,7 @@
     {
      "artist": "Rocky B",
      "title": "One more day",
-     "sales": 528,
+     "sales": 530,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/57/2d/51/572d51b6-0451-bca9-3282-c1195785b5fa/701486082329.jpg/170x170bb.png",
      "prev": null,
      "peak": 16,
@@ -210,7 +210,7 @@
     {
      "artist": "Morgan Wallen",
      "title": "Been By Now",
-     "sales": 616,
+     "sales": 617,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9f/8d/52/9f8d52a0-b6d9-d038-327b-4fe58bedce67/26UMGIM94572.rgb.jpg/170x170bb.png",
      "prev": 17,
      "peak": 16,
@@ -243,7 +243,7 @@
     {
      "artist": "Michael Jackson",
      "title": "Thriller",
-     "sales": 566,
+     "sales": 567,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
      "prev": 22,
      "peak": 18,
@@ -265,7 +265,7 @@
     {
      "artist": "Riley Green",
      "title": "My Way",
-     "sales": 526,
+     "sales": 527,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/74/60/09/74600943-c67a-5335-4f8c-bad8b3e5d2a8/26BMR0007851.rgb.jpg/170x170bb.png",
      "prev": 23,
      "peak": 13,
@@ -276,7 +276,7 @@
     {
      "artist": "Elevation Worship & Chandler Moore",
      "title": "God I'm Just Grateful",
-     "sales": 479,
+     "sales": 480,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/42/01/51420110-806a-86c5-7025-5016e5a2bd57/196873750729.jpg/170x170bb.png",
      "prev": 35,
      "peak": 25,
@@ -309,7 +309,7 @@
     {
      "artist": "Pete & Bas",
      "title": "Too Slick (Remix) [feat. Method Man]",
-     "sales": 405,
+     "sales": 406,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fc/9d/d0/fc9dd019-e8fd-456c-d547-03f44da97434/5064090696357_cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 27,
@@ -320,7 +320,7 @@
     {
      "artist": "Ashe",
      "title": "Stop The Wedding!",
-     "sales": 455,
+     "sales": 456,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/55/7a/b7557aef-bb0a-cc57-25bf-979eee194f16/075679571403.jpg/170x170bb.png",
      "prev": 34,
      "peak": 26,
@@ -331,7 +331,7 @@
     {
      "artist": "Matchbox Twenty",
      "title": "3 am",
-     "sales": 381,
+     "sales": 382,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/be/24/30/be243026-a149-dc9d-ef3b-d01fef6da03f/075679957535.jpg/170x170bb.png",
      "prev": null,
      "peak": 30,
@@ -364,7 +364,7 @@
     {
      "artist": "KAROL G, Judeline & rusowsky",
      "title": "BbY WOW",
-     "sales": 409,
+     "sales": 410,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2b/66/b2/2b66b26c-ab23-faa1-c4ee-06fa2cce8f76/26UM1IM00558.rgb.jpg/170x170bb.png",
      "prev": 40,
      "peak": 29,
@@ -375,7 +375,7 @@
     {
      "artist": "Tucker Wetmore",
      "title": "Wind Up Missin’ You",
-     "sales": 430,
+     "sales": 431,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/e7/60/e2e76050-631c-d8dc-1fd0-4eae43a153a6/24UMGIM54949.rgb.jpg/170x170bb.png",
      "prev": 28,
      "peak": 20,
@@ -386,7 +386,7 @@
     {
      "artist": "Tame Impala",
      "title": "Dracula",
-     "sales": 395,
+     "sales": 396,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/be/b4/36beb41f-c644-55cb-9fbb-bf0622a66653/196873644783.jpg/170x170bb.png",
      "prev": 38,
      "peak": 32,
@@ -408,7 +408,7 @@
     {
      "artist": "Cardi B",
      "title": "Don't Chart",
-     "sales": 396,
+     "sales": 397,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/d3/1c/5dd31c9c-1e1c-0bbc-104f-4a42e2bb4c59/075679556424.jpg/170x170bb.png",
      "prev": 33,
      "peak": 28,
@@ -474,7 +474,7 @@
     {
      "artist": "Ella Langley",
      "title": "Be Her",
-     "sales": 346,
+     "sales": 347,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a1/ba/64/a1ba6484-f462-1b88-ddff-d4c014d5f265/196874018361.jpg/170x170bb.png",
      "prev": 43,
      "peak": 32,
@@ -595,7 +595,7 @@
     {
      "artist": "GENER8ION & Yung Lean",
      "title": "STORM II",
-     "sales": 298,
+     "sales": 299,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/eb/a1/3deba1b7-783b-315e-f654-dc3513eaa08d/823375095637_Cover.jpg/170x170bb.png",
      "prev": 62,
      "peak": 41,
@@ -661,7 +661,7 @@
     {
      "artist": "Jamie Miller & Antonio Cipriano",
      "title": "Babydoll",
-     "sales": 263,
+     "sales": 264,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a9/85/94/a98594bd-8e36-7b9f-a59d-77a3a19eb9a1/26UM1IM19333.rgb.jpg/170x170bb.png",
      "prev": 91,
      "peak": 58,
@@ -765,13 +765,13 @@
      "prev": null,
      "peak": 69,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
      "artist": "Luke Combs",
      "title": "Be By You",
-     "sales": 255,
+     "sales": 256,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4c/b6/e5/4cb6e5b1-2db0-88c0-f025-b79cad3b8fab/196873832111.jpg/170x170bb.png",
      "prev": 57,
      "peak": 55,
@@ -870,7 +870,7 @@
     {
      "artist": "Led Zeppelin",
      "title": "Stairway to Heaven",
-     "sales": 229,
+     "sales": 230,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5c/15/9b/5c159b27-95ca-b9a7-84e3-28e795fffd39/dj.kvkrpptq.jpg/170x170bb.png",
      "prev": 93,
      "peak": 68,
@@ -908,7 +908,7 @@
      "prev": null,
      "peak": 82,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -969,7 +969,7 @@
     {
      "artist": "Kara Holt",
      "title": "I Did It Tired",
-     "sales": 207,
+     "sales": 208,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6c/fd/c5/6cfdc554-120d-c093-2a7a-1dc0b09abfd7/artwork.jpg/170x170bb.png",
      "prev": null,
      "peak": 82,
@@ -1013,7 +1013,7 @@
     {
      "artist": "Haute & Freddy",
      "title": "Shy Girl",
-     "sales": 213,
+     "sales": 214,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/a0/d1/8ca0d1a5-1eba-c003-c0b6-0ec409deddcd/075679613288.jpg/170x170bb.png",
      "prev": 88,
      "peak": 71,
@@ -1046,7 +1046,7 @@
     {
      "artist": "Michael Jackson",
      "title": "Billie Jean",
-     "sales": 204,
+     "sales": 205,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
      "prev": 97,
      "peak": 85,
@@ -1118,7 +1118,7 @@
     {
      "artist": "Ella Langley",
      "title": "Choosin' Texas",
-     "sales": 498,
+     "sales": 499,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -1140,7 +1140,7 @@
     {
      "artist": "Bjorn Bonebreaker",
      "title": "Mama, Don't Close Your Eyes",
-     "sales": 216,
+     "sales": 217,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/05/71/cf/0571cf88-b7fc-b762-d646-8a4b3a598953/artwork.jpg/170x170bb.png",
      "prev": 5,
      "peak": 3,
@@ -1173,7 +1173,7 @@
     {
      "artist": "Rocky B",
      "title": "One more day",
-     "sales": 107,
+     "sales": 108,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/57/2d/51/572d51b6-0451-bca9-3282-c1195785b5fa/701486082329.jpg/170x170bb.png",
      "prev": null,
      "peak": 6,
@@ -1206,7 +1206,7 @@
     {
      "artist": "Carly Pearce & Riley Green",
      "title": "If I Don't Leave I’m Gonna Stay",
-     "sales": 139,
+     "sales": 138,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/48/ce/a2/48cea289-289a-0d95-a67f-e562f804d518/0843930149803.jpg/170x170bb.png",
      "prev": 3,
      "peak": 3,
@@ -1217,7 +1217,7 @@
     {
      "artist": "Cameron Whitcomb",
      "title": "Kingdom of Fear",
-     "sales": 102,
+     "sales": 103,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7e/33/73/7e337333-0802-d7b5-8848-d20fdbdf993c/075679584731.jpg/170x170bb.png",
      "prev": 11,
      "peak": 7,
@@ -1305,7 +1305,7 @@
     {
      "artist": "Bellamy Brothers",
      "title": "Let Your Love Flow",
-     "sales": 59,
+     "sales": 60,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a3/7f/76/a37f7651-374a-633a-63d5-72d1b00cecf9/715187755420.png/170x170bb.png",
      "prev": 83,
      "peak": 15,
@@ -1360,7 +1360,7 @@
     {
      "artist": "Matchbox Twenty",
      "title": "3 am",
-     "sales": 47,
+     "sales": 48,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/be/24/30/be243026-a149-dc9d-ef3b-d01fef6da03f/075679957535.jpg/170x170bb.png",
      "prev": null,
      "peak": 23,
@@ -1426,7 +1426,7 @@
     {
      "artist": "Taylor Swift",
      "title": "Patient Zero (Acoustic Version)",
-     "sales": 66,
+     "sales": 65,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/66/d9/ad/66d9ad66-7a21-5de5-bad0-3130997a7057/26UM1IM31399.rgb.jpg/170x170bb.png",
      "prev": 9,
      "peak": 7,
@@ -1525,7 +1525,7 @@
     {
      "artist": "Helluva Boss, Bryce Pinkham & Brandon Rogers",
      "title": "Dirty Bird",
-     "sales": 39,
+     "sales": 40,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/ac/d3/c0acd3d3-2eea-3d02-e06d-2497bf7b8fc3/075679556769.jpg/170x170bb.png",
      "prev": 47,
      "peak": 38,
@@ -1756,7 +1756,7 @@
     {
      "artist": "Teddy Swims",
      "title": "Some Things I'll Never Know (feat. Maren Morris)",
-     "sales": 27,
+     "sales": 28,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/9b/ff/96/9bff9640-920c-40d2-183f-8521c208362c/054391354563.jpg/170x170bb.png",
      "prev": 97,
      "peak": 59,
@@ -1937,7 +1937,7 @@
      "prev": null,
      "peak": 75,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -2102,7 +2102,7 @@
      "prev": null,
      "peak": 90,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -2201,7 +2201,7 @@
      "prev": null,
      "peak": 99,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -2212,7 +2212,7 @@
      "prev": null,
      "peak": 100,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     }
    ]
@@ -2224,7 +2224,7 @@
     {
      "artist": "Jamie Miller",
      "title": "Babydoll",
-     "sales": 667,
+     "sales": 668,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e6/15/d2/e615d28f-70b5-e43a-b3c8-460dca39c9e5/26UMGIM97516.rgb.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -2235,7 +2235,7 @@
     {
      "artist": "Take That",
      "title": "Higher",
-     "sales": 302,
+     "sales": 304,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/11/22/291122a2-5136-40a9-f195-715fc0b5d87d/26UM1IM20740.rgb.jpg/170x170bb.png",
      "prev": null,
      "peak": 2,
@@ -2246,7 +2246,7 @@
     {
      "artist": "HUGEL, Imael Angel & Ultra Naté",
      "title": "Movin' To The Sun",
-     "sales": 346,
+     "sales": 345,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/61/7a/96617ab5-51da-7cfc-97e5-c5a6a893c210/1087654.jpg/170x170bb.png",
      "prev": 2,
      "peak": 2,
@@ -2301,7 +2301,7 @@
     {
      "artist": "SIENNA SPIRO",
      "title": "Great Expectation",
-     "sales": 161,
+     "sales": 162,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c6/1e/1b/c61e1b6d-e9dd-40ca-916a-223e1dc5a269/26UMGIM51349.rgb.jpg/170x170bb.png",
      "prev": 9,
      "peak": 6,
@@ -2400,7 +2400,7 @@
     {
      "artist": "Joe McElderry",
      "title": "Phantom Of The Discotheque",
-     "sales": 80,
+     "sales": 81,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2b/e1/90/2be1901a-5b7a-34f4-b798-7ea794c58656/artwork.jpg/170x170bb.png",
      "prev": null,
      "peak": 16,
@@ -2565,7 +2565,7 @@
     {
      "artist": "S&B Music",
      "title": "Sorry",
-     "sales": 81,
+     "sales": 80,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/49/11/a0/4911a071-c797-d635-82c3-a3bfa818b8b6/artwork.jpg/170x170bb.png",
      "prev": 10,
      "peak": 5,
@@ -2636,13 +2636,13 @@
      "prev": null,
      "peak": 38,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
      "artist": "Led Zeppelin",
      "title": "Stairway to Heaven",
-     "sales": 53,
+     "sales": 54,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5c/15/9b/5c159b27-95ca-b9a7-84e3-28e795fffd39/dj.kvkrpptq.jpg/170x170bb.png",
      "prev": 46,
      "peak": 34,
@@ -2664,7 +2664,7 @@
     {
      "artist": "Fontaines D.C.",
      "title": "Starburster",
-     "sales": 59,
+     "sales": 58,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4d/3a/76/4d3a7621-8b56-56a3-829f-545dde0b2b6a/191404143674.png/170x170bb.png",
      "prev": 29,
      "peak": 17,
@@ -2785,7 +2785,7 @@
     {
      "artist": "Tame Impala",
      "title": "Loser",
-     "sales": 42,
+     "sales": 43,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/80/54/11/80541122-c1c4-50ad-a673-ff79f4cf8aa7/196873555331.jpg/170x170bb.png",
      "prev": 100,
      "peak": 41,
@@ -2928,7 +2928,7 @@
     {
      "artist": "Digga",
      "title": "Girls All Around The World",
-     "sales": 53,
+     "sales": 52,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/11/d7/b0/11d7b0b3-7c7c-1941-481d-576adfe7bcd5/26SYMIM36166.rgb.jpg/170x170bb.png",
      "prev": 18,
      "peak": 5,
@@ -3186,7 +3186,7 @@
      "prev": null,
      "peak": 88,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3407,12 +3407,12 @@
     {
      "artist": "Kings of Leon",
      "title": "KOYSAR",
-     "sales": 50,
+     "sales": 51,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
      "prev": null,
      "peak": 8,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3533,7 +3533,7 @@
      "prev": null,
      "peak": 19,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3550,7 +3550,7 @@
     {
      "artist": "ADÉLA",
      "title": "Nicole Kidman",
-     "sales": 42,
+     "sales": 41,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/77/7b/5d777b87-e796-0b3e-cef6-d37d993dd8fe/26UMGIM82371.rgb.jpg/170x170bb.png",
      "prev": 11,
      "peak": 11,
@@ -3709,7 +3709,7 @@
      "prev": null,
      "peak": 35,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -3907,7 +3907,7 @@
      "prev": null,
      "peak": 53,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4303,7 +4303,7 @@
      "prev": null,
      "peak": 89,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4436,12 +4436,12 @@
     {
      "artist": "Normani, Calvin Harris",
      "title": "Checklist (feat. Wizkid)",
-     "sales": 155,
+     "sales": 156,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/e3/6a/7f/e36a7feb-468a-d7d0-4431-97bc75f6455e/886447381151.jpg/170x170bb.png",
      "prev": null,
      "peak": 1,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4452,7 +4452,7 @@
      "prev": null,
      "peak": 2,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4463,13 +4463,13 @@
      "prev": null,
      "peak": 3,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
      "artist": "Racionais MC's",
      "title": "Sou + Você",
-     "sales": 119,
+     "sales": 118,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3f/ca/fd/3fcafdad-07c1-c752-7878-39dfd32b3b28/0.jpg/170x170bb.png",
      "prev": 2,
      "peak": 1,
@@ -4480,7 +4480,7 @@
     {
      "artist": "FirstOne",
      "title": "8/7",
-     "sales": 121,
+     "sales": 120,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/47/9f/e2/479fe231-6636-1e11-eb7a-e6055464fd8d/0840517271087_Cover.jpg/170x170bb.png",
      "prev": 1,
      "peak": 1,
@@ -4601,7 +4601,7 @@
     {
      "artist": "BTS",
      "title": "SWIM",
-     "sales": 32,
+     "sales": 33,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/a2/b4/e0a2b443-7969-b57a-a591-cb6172c10aa7/198704943959_Cover.jpg/170x170bb.png",
      "prev": 88,
      "peak": 7,
@@ -4799,7 +4799,7 @@
     {
      "artist": "Earth, Wind & Fire",
      "title": "September",
-     "sales": 17,
+     "sales": 18,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5d/66/3b/5d663b1f-dcc9-030d-0cf1-fc5d344d391d/886447618448.jpg/170x170bb.png",
      "prev": null,
      "peak": 24,
@@ -4826,7 +4826,7 @@
      "prev": null,
      "peak": 36,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4903,7 +4903,7 @@
      "prev": null,
      "peak": 43,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -4925,7 +4925,7 @@
      "prev": null,
      "peak": 45,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5244,7 +5244,7 @@
      "prev": null,
      "peak": 74,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5327,7 +5327,7 @@
     {
      "artist": "Green Day",
      "title": "Basket Case",
-     "sales": 11,
+     "sales": 12,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/88/83/e7/8883e74b-1b7c-0725-09de-21e4e00d54b5/093624915713.jpg/170x170bb.png",
      "prev": null,
      "peak": 54,
@@ -5442,7 +5442,7 @@
      "prev": null,
      "peak": 92,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
@@ -5464,13 +5464,13 @@
      "prev": null,
      "peak": 94,
      "days": 1,
-     "new": true,
+     "new": false,
      "re": false
     },
     {
      "artist": "Marcelo Jeneci & Laura Lavieri",
      "title": "Felicidade",
-     "sales": 10,
+     "sales": 11,
      "art": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/5d/83/545d832b-94c7-0bbe-23ff-3ec168e7b4f2/0.jpg/170x170bb.png",
      "prev": null,
      "peak": 65,
