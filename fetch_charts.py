@@ -27,8 +27,10 @@ import argparse
 import json
 import math
 import os
+import re
 import sys
 import time
+import unicodedata
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
@@ -326,6 +328,7 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
         average = sum(curve(recent.get(s, OFF_CHART_POSITION)) for s in snaps) / len(snaps)
         sales = factor * (NOW_WEIGHT * curve(position) + (1 - NOW_WEIGHT) * average)
         result.append({
+            "id": song.get("id", ""),
             "artist": song["artist"],
             "title": song["title"],
             "sales": max(1, int(round(sales))),
@@ -345,6 +348,128 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
             if not r["recent"]:
                 del r["recent"]
     return result
+
+
+# ---------------------------------------------------------------- global chart
+
+GLOBAL_SIZE = 100             # songs on the Global Sales chart
+GLOBAL_BREAKDOWN = 8          # countries listed individually per song; the rest are summed as "other countries"
+
+
+def _norm(text):
+    """Lower-case, unify quotes and spacing, and drop featured-artist tags, so the same song matches across stores."""
+    t = unicodedata.normalize("NFKC", text or "").lower()
+    t = t.replace("\u2019", "'").replace("\u2018", "'").replace("\u201c", '"').replace("\u201d", '"')
+    t = re.sub(r"\s*[\(\[](feat\.?|ft\.?|featuring|with)\s[^\)\]]*[\)\]]", "", t)
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
+
+
+def _artist_norm(text):
+    t = _norm(text)
+    t = re.sub(r"\s+(feat\.?|ft\.?|featuring)\s.*$", "", t)
+    return t
+
+
+def global_key(song):
+    return _artist_norm(song["artist"]) + "|" + _norm(song["title"])
+
+
+def build_global(charts):
+    """Add up every country's estimate for each song.
+
+    charts: {country_key: [songs with "sales"]}. Songs are the same when artist and title match (after
+    small clean-ups), or when two countries list the same iTunes id. Returns the songs sorted by total sales.
+    """
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    entries = []
+    for country, songs in charts.items():
+        for pos, song in enumerate(songs, 1):
+            nk = "n:" + global_key(song)
+            find(nk)
+            if song.get("id"):
+                union(nk, "i:" + str(song["id"]))
+            entries.append((country, pos, song, nk))
+
+    groups = {}
+    for country, pos, song, nk in entries:
+        g = groups.setdefault(find(nk), {"by_country": {}, "best": None})
+        prev = g["by_country"].get(country)
+        if prev is None or song["sales"] > prev[1]:   # if a store lists two versions that merge, count the bigger one
+            g["by_country"][country] = (pos, song["sales"], song)
+        if g["best"] is None or song["sales"] > g["best"]["sales"]:
+            g["best"] = song
+
+    ranked = []
+    for g in groups.values():
+        by = sorted(g["by_country"].items(), key=lambda kv: -kv[1][1])
+        total = sum(v[1] for _, v in by)
+        best = g["best"]
+        art = best.get("art") or next((v[2].get("art") for _, v in by if v[2].get("art")), "")
+        shown = [[k, v[1]] for k, v in by[:GLOBAL_BREAKDOWN]]
+        rest = by[GLOBAL_BREAKDOWN:]
+        ranked.append({
+            "id": best.get("id", ""),
+            "artist": best["artist"],
+            "title": best["title"],
+            "art": art,
+            "sales": total,
+            "countries": len(by),
+            "breakdown": shown,
+            "other": {"countries": len(rest), "sales": sum(v[1] for _, v in rest)},
+            "_key": global_key(best),
+        })
+    ranked.sort(key=lambda r: (-r["sales"], -r["countries"], r["title"]))
+    return ranked
+
+
+def track_positions(market_hist, songs, today):
+    """Last position, peak, days on chart and NEW/RE marks for a ranked list (used for the Global chart)."""
+    dates = market_hist.setdefault("dates", [])
+    store = market_hist.setdefault("songs", {})
+    earlier = [d for d in dates if d < today]
+    prev_chart_day = earlier[-1] if earlier else None
+    if today not in dates:
+        dates.append(today)
+        dates.sort()
+    del dates[:-KEEP_DAYS_OF_POSITIONS]
+    for position, song in enumerate(songs, 1):
+        key = song.pop("_key")
+        rec = store.get(key)
+        is_new = rec is None
+        if is_new:
+            rec = {"first": today, "peak": position, "peak_date": today, "days": 0, "last_date": None, "pos": {}}
+            store[key] = rec
+        if rec["last_date"] != today:
+            rec["days"] += 1
+        previous = rec["pos"].get(prev_chart_day) if prev_chart_day else None
+        rec["pos"][today] = position
+        rec["last_date"] = today
+        if position < rec["peak"]:
+            rec["peak"], rec["peak_date"] = position, today
+        for old in sorted(rec["pos"])[:-KEEP_DAYS_OF_POSITIONS]:
+            del rec["pos"][old]
+        song.update({
+            "prev": previous, "peak": rec["peak"], "days": rec["days"],
+            "new": bool(is_new or (prev_chart_day is None and rec["days"] == 1)),
+            "re": bool(previous is None and not is_new and rec["days"] > 1),
+        })
+    for key in [k for k, r in store.items() if r["last_date"] and day_diff(today, r["last_date"]) > FORGET_AFTER_DAYS]:
+        del store[key]
+    return songs
 
 
 # ---------------------------------------------------------------- files
@@ -384,6 +509,7 @@ def main(argv=None):
     legacy = load_json(args.legacy, {}) if args.legacy else {}
 
     index_countries = []
+    charts = {}  # country key -> songs with sales, for the Global chart
     got = 0
     for key, code, name, scale, utc, main_country in COUNTRIES:
         if only and key not in only:
@@ -412,6 +538,7 @@ def main(argv=None):
 
         if result:
             result.update({"key": key, "name": name})
+            charts[key] = result["songs"]
             save_json(os.path.join(args.out, key + ".json"), result, compact=True)
             index_countries.append({
                 "key": key, "code": code, "name": name, "main": main_country,
@@ -426,9 +553,26 @@ def main(argv=None):
             return 1
 
     times = [c["fetched_at"] for c in index_countries if c.get("fetched_at")]
+    fetched_at = max(times) if times else now.strftime("%Y-%m-%dT%H:%M:%SZ")  # newest real download
+
+    # Global Sales 100: every country's estimates added up
+    ranked = build_global(charts)
+    top = ranked[:GLOBAL_SIZE]
+    global_hist_path = os.path.join(args.store, "history", "global.json")
+    global_hist = load_json(global_hist_path, {})
+    track_positions(global_hist, top, today)
+    save_json(global_hist_path, global_hist, compact=True)
+    save_json(os.path.join(args.out, "global.json"), {
+        "key": "global", "name": "Global Sales 100", "source": "global",
+        "chart_time": fetched_at, "fetched_at": fetched_at,
+        "countries_counted": len(charts), "songs": top,
+    }, compact=True)
+    print(f"global: {len(ranked)} different songs across {len(charts)} countries; top {len(top)} saved")
+
     index = {
-        "fetched_at": max(times) if times else now.strftime("%Y-%m-%dT%H:%M:%SZ"),  # newest real download
+        "fetched_at": fetched_at,
         "update_minutes": UPDATE_MINUTES,
+        "global": {"key": "global", "name": "Global Sales 100", "songs": len(top), "countries_counted": len(charts)},
         "countries": index_countries,
     }
     save_json(os.path.join(args.out, "index.json"), index)

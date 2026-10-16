@@ -72,7 +72,23 @@ body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--fo
 .mast .meta { color: var(--mast-muted); font-size: 13px; margin: 10px 0 18px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .mast .meta b { color: var(--mast-fg); font-weight: 500; }
 .pickers { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
-.pick-main, .pick-other { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pick-global, .pick-main, .pick-other { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pickers { justify-content: flex-start; }
+.pick-other { margin-left: auto; }
+.tab-global { color: var(--mast-fg); }
+.tab-global::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 2px; }
+.sg .gc { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.row.expandable { cursor: pointer; }
+.row.expandable:hover { background: var(--bg); }
+.row.expandable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.row .chev { margin-left: 8px; color: var(--accent); font-size: 12px; white-space: nowrap; }
+.bd { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
+.bd .c { display: inline-flex; gap: 6px; align-items: baseline; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; }
+.bd .c b { font-family: var(--font-data); font-weight: 500; font-variant-numeric: tabular-nums; }
+.bd .eq { font-family: var(--font-data); color: var(--muted); }
+.bd .tot { font-family: var(--font-data); font-weight: 500; color: var(--fg); }
+.detail { padding: 2px 14px 12px calc(14px + 64px + 12px + 44px + 12px); border-bottom: 1px solid var(--line); }
+.hero .bd { margin-top: 12px; }
 .pick-other { padding-bottom: 10px; flex: 0 1 300px; }
 .pick-title { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mast-muted); }
 .combo { position: relative; }
@@ -153,7 +169,10 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
 @media (max-width: 700px) {
   .brand .tagline { display: none; }
   .pickers { flex-direction: column; align-items: stretch; }
-  .pick-other { flex: none; padding-bottom: 16px; }
+  .pick-other { flex: none; padding-bottom: 16px; margin-left: 0; }
+  .pick-global .tab, .pick-main .tab { padding: 10px 16px; border-radius: 6px; border-bottom-width: 0; }
+  .pick-global .tab[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--accent); }
+  .detail { padding: 2px 14px 12px 14px; }
   .pick-main .tab { padding: 10px 16px; border-radius: 6px; border-bottom-width: 0; }
   .pick-main .tab[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--accent); }
   .hero { grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 14px; }
@@ -193,6 +212,10 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       <h1 id="country">United States</h1>
       <div class="meta" id="meta"></div>
       <div class="pickers">
+        <div class="pick-global" id="pickGlobal" hidden>
+          <div class="pick-title" id="globalTitle">Global</div>
+          <div class="tabs" role="group" aria-labelledby="globalTitle"><button type="button" class="tab tab-global" id="globalTab" data-key="global" aria-pressed="false">Global Sales 100</button></div>
+        </div>
         <div class="pick-main">
           <div class="pick-title" id="mainTitle">Main countries</div>
           <div class="tabs" id="tabs" role="group" aria-labelledby="mainTitle"></div>
@@ -263,6 +286,8 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
 
   var comboEl = document.getElementById("combo"), searchEl = document.getElementById("countrySearch"), listEl = document.getElementById("countryList");
   var eyebrowEl = document.getElementById("eyebrow");
+  var pickGlobalEl = document.getElementById("pickGlobal"), globalTabEl = document.getElementById("globalTab");
+  globalTabEl.addEventListener("click", function () { choose("global"); });
 
   var countries = DEFAULT_MAIN.slice();  // every country with a chart, from data/index.json
   var byKey = {};                        // key -> country info
@@ -340,11 +365,12 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   function show(key) {
     current = key;
     var c = info(key);
-    Array.prototype.forEach.call(tabsEl.children, function (b) { b.setAttribute("aria-pressed", String(b.dataset.key === key)); });
-    comboEl.classList.toggle("active", !c.main);
-    if (document.activeElement !== searchEl) searchEl.value = c.main ? "" : c.name;
+    Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (b) { b.setAttribute("aria-pressed", String(b.dataset.key === key)); });
+    var isOther = !c.main && !c.global;
+    comboEl.classList.toggle("active", isOther);
+    if (document.activeElement !== searchEl) searchEl.value = isOther ? c.name : "";
     countryEl.textContent = c.name;
-    document.title = c.name + " Top 100 · Digital Daily Units";
+    document.title = (c.global ? c.name : c.name + " Top 100") + " · Digital Daily Units";
     getChart(key).then(function (d) { if (current === key) render(key, d); });
   }
 
@@ -367,8 +393,11 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     }
     var scale = FALLBACK_SCALE[key] || 0.01;
     var songs = d.songs, first = songs[0];
-    eyebrowEl.textContent = "Top " + songs.length + " · estimated sales, last 24 hours";
-    document.title = c.name + " Top " + songs.length + " · Digital Daily Units";
+    var isGlobal = d.source === "global";
+    eyebrowEl.textContent = isGlobal
+      ? "Top " + songs.length + " · estimated sales across " + (d.countries_counted || "all") + " countries, last 24 hours"
+      : "Top " + songs.length + " · estimated sales, last 24 hours";
+    document.title = (isGlobal ? c.name : c.name + " Top " + songs.length) + " · Digital Daily Units";
     var max = Math.max.apply(null, songs.map(function (s, i) { return salesOf(s, i + 1, scale); }).concat([1]));
     if (first) {
       heroEl.hidden = false;
@@ -380,10 +409,13 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       body.appendChild(el("h2", "", first.title));
       body.appendChild(el("p", "artist", first.artist));
       var hs = el("div", "hero-stats");
-      [["Est. sales, 24 hours", num(salesOf(first, 1, scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
+      var heroStats = [["Est. sales, 24 hours", num(salesOf(first, 1, scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]];
+      if (isGlobal) heroStats.splice(1, 0, ["Countries", String(first.countries || 0)]);
+      heroStats.forEach(function (p) {
         var s = el("div", "stat"); s.appendChild(el("div", "l", p[0])); s.appendChild(el("div", "v", p[1])); hs.appendChild(s);
       });
       body.appendChild(hs);
+      if (isGlobal) body.appendChild(breakdown(first));
       heroEl.appendChild(body);
     }
     var frag = document.createDocumentFragment();
@@ -395,6 +427,27 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       row.appendChild(rk);
       row.appendChild(cover(s, 100));
       var sg = el("div", "sg"); sg.appendChild(el("div", "t", s.title)); sg.appendChild(el("div", "a", s.artist));
+      if (isGlobal) {
+        var gc = el("div", "gc", "Charting in " + s.countries + (s.countries === 1 ? " country" : " countries"));
+        var chev = el("span", "chev", "▾ countries");
+        gc.appendChild(chev);
+        sg.appendChild(gc);
+        row.className = "row expandable";
+        row.tabIndex = 0;
+        row.setAttribute("role", "button");
+        row.setAttribute("aria-expanded", "false");
+        (function (rowEl, song, chevEl) {
+          function toggle() {
+            var open = rowEl.getAttribute("aria-expanded") === "true";
+            rowEl.setAttribute("aria-expanded", String(!open));
+            chevEl.textContent = open ? "▾ countries" : "▴ hide";
+            if (open) { if (rowEl.nextSibling && rowEl.nextSibling.className === "detail") rowEl.parentNode.removeChild(rowEl.nextSibling); }
+            else { var det = el("div", "detail"); det.appendChild(breakdown(song)); rowEl.parentNode.insertBefore(det, rowEl.nextSibling); }
+          }
+          rowEl.addEventListener("click", toggle);
+          rowEl.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); } });
+        })(row, s, chev);
+      }
       row.appendChild(sg);
       var sl = el("div", "sl"); sl.appendChild(el("div", "v", num(v)));
       var bar = el("div", "bar"), fill = document.createElement("i"); fill.style.width = Math.max(2, (v / max) * 100) + "%";
@@ -410,12 +463,17 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     renderNotes(songs);
 
     function metaItem(k, v) { var s = el("span"); s.appendChild(document.createTextNode(k + " ")); s.appendChild(el("b", "", v)); metaEl.appendChild(s); }
-    metaItem("Chart:", d.source === "sales" ? "iTunes Store sales" : "Apple Music streaming");
-    metaItem("Chart time:", fmtTime(d.chart_time));
+    if (isGlobal) {
+      metaItem("Chart:", "Sum of " + (d.countries_counted || "all") + " country estimates");
+      metaItem("Updated:", fmtTime(d.chart_time));
+    } else {
+      metaItem("Chart:", d.source === "sales" ? "iTunes Store sales" : "Apple Music streaming");
+      metaItem("Chart time:", fmtTime(d.chart_time));
+    }
     if (demo) {
       noticeEl.textContent = "Preview: chart positions are real iTunes charts. Last, peak, days and the NEW and RE marks are demo values here; on the live site they come from real chart history.";
       noticeEl.hidden = false;
-    } else if (d.source !== "sales") {
+    } else if (d.source !== "sales" && !isGlobal) {
       noticeEl.textContent = "The sales chart could not be downloaded for this country, so this is the streaming chart instead.";
       noticeEl.hidden = false;
     }
@@ -427,12 +485,33 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     return String.fromCodePoint.apply(null, code.toUpperCase().split("").map(function (ch) { return 0x1F1E6 + ch.charCodeAt(0) - 65; }));
   }
   function fold(t) { return (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
-  function others() { return countries.filter(function (c) { return !c.main; }).sort(function (a, b) { return a.name.localeCompare(b.name); }); }
+  function breakdown(song) {
+    var wrap = el("div", "bd");
+    (song.breakdown || []).forEach(function (pair) {
+      var ci = byKey[pair[0]] || { name: pair[0].toUpperCase(), code: pair[0] };
+      var chip = el("span", "c"); chip.title = ci.name;
+      chip.appendChild(document.createTextNode((flag(ci.code) ? flag(ci.code) + " " : "") + (TAB_LABEL[pair[0]] || pair[0].toUpperCase())));
+      chip.appendChild(el("b", "", num(pair[1])));
+      wrap.appendChild(chip);
+    });
+    var o = song.other || { countries: 0, sales: 0 };
+    if (o.countries) {
+      var more = el("span", "c"); more.appendChild(document.createTextNode("+ " + o.countries + " more " + (o.countries === 1 ? "country" : "countries")));
+      more.appendChild(el("b", "", num(o.sales))); wrap.appendChild(more);
+    }
+    wrap.appendChild(el("span", "eq", "="));
+    wrap.appendChild(el("span", "tot", num(song.sales) + " total"));
+    return wrap;
+  }
 
-  function setCountries(list) {
+  function others() { return countries.filter(function (c) { return !c.main && !c.global; }).sort(function (a, b) { return a.name.localeCompare(b.name); }); }
+
+  function setCountries(list, globalInfo) {
     countries = list && list.length ? list : DEFAULT_MAIN.slice();
     byKey = {};
     countries.forEach(function (c) { byKey[c.key] = c; });
+    if (globalInfo) byKey.global = { key: "global", code: "", name: globalInfo.name || "Global Sales 100", main: false, global: true };
+    pickGlobalEl.hidden = !globalInfo;
     tabsEl.textContent = "";
     countries.filter(function (c) { return c.main; }).forEach(function (c) {
       var b = el("button", "tab", TAB_LABEL[c.key] || c.key.toUpperCase());
@@ -508,7 +587,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
         if (j.fetched_at !== indexStamp || first) {
           indexStamp = j.fetched_at || String(Date.now());
           cache = {};
-          setCountries(j.countries);
+          setCountries(j.countries, j.global);
           fetchedAt = t;
           if (!byKey[current]) current = "us";
           show(current);
