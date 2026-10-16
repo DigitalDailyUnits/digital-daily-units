@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: update-charts
@@ -15,23 +17,51 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Get saved chart history
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git ls-remote --exit-code --heads origin data > /dev/null 2>&1; then
+            git clone --quiet --depth 1 --branch data "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" store
+            rm -rf store/.git
+          else
+            echo "No saved history yet; starting fresh (older history.json is imported if present)."
+            mkdir -p store
+          fi
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Download charts
-        run: python fetch_charts.py
-      - name: Save changes
+
+      - name: Download charts for every country
+        run: python fetch_charts.py --store store --out site/data --legacy history.json
+
+      - name: Build the site
+        run: cp index.html site/
+
+      - name: Save chart history
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          cd store
+          git init --quiet -b data
           git config user.name "chart-bot"
           git config user.email "chart-bot@users.noreply.github.com"
-          git add data.json history.json
-          git diff --cached --quiet && exit 0
-          git commit -m "Update charts"
-          for attempt in 1 2 3; do
-            git push && exit 0
-            git pull --rebase
-          done
-          exit 1
+          git add -A
+          git commit --quiet -m "Chart history $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push --quiet --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Publish the site
+        id: deploy
+        uses: actions/deploy-pages@v4
