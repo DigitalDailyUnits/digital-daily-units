@@ -71,6 +71,23 @@ body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--fo
 .mast h1 { font-family: var(--font-display); font-weight: 900; font-stretch: 78%; font-size: clamp(38px, 9vw, 68px); line-height: 0.98; letter-spacing: -0.01em; margin: 0; text-transform: uppercase; text-wrap: balance; }
 .mast .meta { color: var(--mast-muted); font-size: 13px; margin: 10px 0 18px; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .mast .meta b { color: var(--mast-fg); font-weight: 500; }
+.pickers { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; }
+.pick-main, .pick-other { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pick-other { padding-bottom: 10px; flex: 0 1 300px; }
+.pick-title { font-family: var(--font-display); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mast-muted); }
+.combo { position: relative; }
+.combo input { width: 100%; font: 500 15px/1.2 var(--font-body); color: var(--mast-fg); background: var(--mast-chip); border: 1px solid var(--mast-line); border-radius: 6px; padding: 10px 34px 10px 12px; }
+.combo input::placeholder { color: var(--mast-muted); }
+.combo input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.combo.active input { border-color: var(--accent); background: var(--mast-bg); }
+.combo-caret { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--mast-muted); pointer-events: none; font-size: 12px; }
+.combo ul { position: absolute; z-index: 20; left: 0; right: 0; top: calc(100% + 4px); margin: 0; padding: 4px; list-style: none; max-height: min(340px, 60vh); overflow-y: auto; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 32px rgb(0 0 0 / 0.28); }
+.combo li { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+.combo li .fl { font-size: 18px; line-height: 1; width: 22px; text-align: center; }
+.combo li .cc { margin-left: auto; font-family: var(--font-data); font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.combo li[aria-selected="true"], .combo li:hover { background: var(--bar); }
+.combo li.empty { cursor: default; color: var(--muted); }
+.combo li.empty:hover { background: none; }
 .tabs { display: flex; gap: 2px; overflow-x: auto; }
 .tab { font-family: var(--font-display); font-weight: 800; font-stretch: 85%; font-size: 17px; letter-spacing: 0.06em; padding: 11px 22px; border: 0; border-radius: 6px 6px 0 0; background: transparent; color: var(--mast-muted); cursor: pointer; border-bottom: 3px solid transparent; }
 .tab:hover { color: var(--mast-fg); }
@@ -135,6 +152,10 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
 
 @media (max-width: 700px) {
   .brand .tagline { display: none; }
+  .pickers { flex-direction: column; align-items: stretch; }
+  .pick-other { flex: none; padding-bottom: 16px; }
+  .pick-main .tab { padding: 10px 16px; border-radius: 6px; border-bottom-width: 0; }
+  .pick-main .tab[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--accent); }
   .hero { grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 14px; }
   .hero .art { width: 96px; font-size: 15px; }
   .hero-rank { font-size: 60px; }
@@ -168,10 +189,23 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       </div>
     </div>
     <div class="heading">
-      <p class="eyebrow">Top 100 · estimated sales, last 24 hours</p>
+      <p class="eyebrow" id="eyebrow">Top 100 · estimated sales, last 24 hours</p>
       <h1 id="country">United States</h1>
       <div class="meta" id="meta"></div>
-      <div class="tabs" id="tabs" role="group" aria-label="Country"></div>
+      <div class="pickers">
+        <div class="pick-main">
+          <div class="pick-title" id="mainTitle">Main countries</div>
+          <div class="tabs" id="tabs" role="group" aria-labelledby="mainTitle"></div>
+        </div>
+        <div class="pick-other">
+          <label class="pick-title" for="countrySearch">Other countries</label>
+          <div class="combo" id="combo">
+            <input id="countrySearch" type="text" role="combobox" aria-expanded="false" aria-controls="countryList" aria-autocomplete="list" autocomplete="off" spellcheck="false" placeholder="Search countries">
+            <span class="combo-caret" aria-hidden="true">▾</span>
+            <ul id="countryList" role="listbox" aria-label="Other countries" hidden></ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -203,13 +237,17 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   var UPDATE_MINUTES = [7, 37];           // the site updates at these minutes past every hour (matches update.yml)
   var CHECK_FOR_MIN = 30;                 // after each scheduled time, quietly check for new data for this long
   var LATE_AFTER_MIN = 65;                // say the update is running late once the data is older than this
-  var MARKETS = {
-    us: { code: "US", name: "United States", scale: 1 },
-    ca: { code: "CA", name: "Canada", scale: 0.11 },
-    uk: { code: "UK", name: "United Kingdom", scale: 0.14 },
-    au: { code: "AU", name: "Australia", scale: 0.06 },
-    br: { code: "BR", name: "Brazil", scale: 0.05 }
-  };
+  // the main countries, used until data/index.json has loaded (and by the old single-file data.json)
+  var DEFAULT_MAIN = [
+    { key: "us", code: "us", name: "United States", main: true },
+    { key: "ca", code: "ca", name: "Canada", main: true },
+    { key: "uk", code: "gb", name: "United Kingdom", main: true },
+    { key: "au", code: "au", name: "Australia", main: true },
+    { key: "br", code: "br", name: "Brazil", main: true }
+  ];
+  var TAB_LABEL = { uk: "UK" };          // tab text when it isn't simply the key in capitals
+  var ALIASES = { gb: "uk" };            // links people might type, mapped to the site's key
+  var FALLBACK_SCALE = { us: 1, ca: 0.11, uk: 0.14, au: 0.06, br: 0.05 };
 
   function estimate(rank, scale) { return Math.round(A * Math.pow(rank, -B) * scale); }
   function salesOf(song, rank, scale) { return typeof song.sales === "number" ? song.sales : estimate(rank, scale); }
@@ -223,7 +261,14 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
   var clockLabel = document.getElementById("clockLabel"), clockValue = document.getElementById("clockValue"), clockSub = document.getElementById("clockSub");
   document.getElementById("copy").textContent = "© " + new Date().getFullYear() + " Digital Daily Units";
 
-  var data = null, current = "us", fetchedAt = 0;
+  var comboEl = document.getElementById("combo"), searchEl = document.getElementById("countrySearch"), listEl = document.getElementById("countryList");
+  var eyebrowEl = document.getElementById("eyebrow");
+
+  var countries = DEFAULT_MAIN.slice();  // every country with a chart, from data/index.json
+  var byKey = {};                        // key -> country info
+  var cache = {};                        // key -> chart data already downloaded
+  var legacy = null;                     // the old data.json, used only while switching over
+  var current = "us", fetchedAt = 0, indexStamp = "", demo = false;
 
   /* ---- cover art ---- */
   function artUrl(url, size) { return url ? url.replace(/\/\d+x\d+bb\./, "/" + size + "x" + size + "bb.") : ""; }
@@ -290,18 +335,41 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     if (fall) add("Biggest fall", "▼" + fall.d + "  " + fall.s.title + " – " + fall.s.artist);
   }
 
+  function info(key) { return byKey[key] || { key: key, name: key.toUpperCase(), main: false }; }
+
   function show(key) {
     current = key;
+    var c = info(key);
     Array.prototype.forEach.call(tabsEl.children, function (b) { b.setAttribute("aria-pressed", String(b.dataset.key === key)); });
-    var m = MARKETS[key];
-    countryEl.textContent = m.name;
-    document.title = m.name + " Top 100 · Digital Daily Units";
-    rowsEl.textContent = ""; heroEl.textContent = ""; heroEl.hidden = true; metaEl.textContent = ""; notesEl.textContent = ""; noticeEl.hidden = true;
-    var d = data && data.markets && data.markets[key];
-    if (!d) { noticeEl.textContent = "No chart data for this country yet."; noticeEl.hidden = false; return; }
+    comboEl.classList.toggle("active", !c.main);
+    if (document.activeElement !== searchEl) searchEl.value = c.main ? "" : c.name;
+    countryEl.textContent = c.name;
+    document.title = c.name + " Top 100 · Digital Daily Units";
+    getChart(key).then(function (d) { if (current === key) render(key, d); });
+  }
 
+  function getChart(key) {
+    if (legacy) return Promise.resolve(legacy.markets && legacy.markets[key]);
+    if (cache[key]) return Promise.resolve(cache[key]);
+    return fetch("data/" + key + ".json?t=" + encodeURIComponent(indexStamp), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { cache[key] = d; return d; })
+      .catch(function () { return null; });
+  }
+
+  function render(key, d) {
+    var c = info(key);
+    rowsEl.textContent = ""; heroEl.textContent = ""; heroEl.hidden = true; metaEl.textContent = ""; notesEl.textContent = ""; noticeEl.hidden = true;
+    if (!d || !d.songs || !d.songs.length) {
+      eyebrowEl.textContent = "Estimated sales, last 24 hours";
+      noticeEl.textContent = "No chart data for " + c.name + " yet. It should appear after the next update.";
+      noticeEl.hidden = false; return;
+    }
+    var scale = FALLBACK_SCALE[key] || 0.01;
     var songs = d.songs, first = songs[0];
-    var max = Math.max.apply(null, songs.map(function (s, i) { return salesOf(s, i + 1, m.scale); }).concat([1]));
+    eyebrowEl.textContent = "Top " + songs.length + " · estimated sales, last 24 hours";
+    document.title = c.name + " Top " + songs.length + " · Digital Daily Units";
+    var max = Math.max.apply(null, songs.map(function (s, i) { return salesOf(s, i + 1, scale); }).concat([1]));
     if (first) {
       heroEl.hidden = false;
       heroEl.appendChild(cover(first, 300));
@@ -312,7 +380,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
       body.appendChild(el("h2", "", first.title));
       body.appendChild(el("p", "artist", first.artist));
       var hs = el("div", "hero-stats");
-      [["Est. sales, 24 hours", num(salesOf(first, 1, m.scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
+      [["Est. sales, 24 hours", num(salesOf(first, 1, scale))], ["Last", first.prev != null ? String(first.prev) : "–"], ["Peak", String(first.peak)], ["Days on chart", String(first.days)]].forEach(function (p) {
         var s = el("div", "stat"); s.appendChild(el("div", "l", p[0])); s.appendChild(el("div", "v", p[1])); hs.appendChild(s);
       });
       body.appendChild(hs);
@@ -321,7 +389,7 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     var frag = document.createDocumentFragment();
     songs.forEach(function (s, i) {
       if (i === 0) return;
-      var pos = i + 1, v = salesOf(s, pos, m.scale);
+      var pos = i + 1, v = salesOf(s, pos, scale);
       var row = el("div", "row");
       var rk = el("div", "rk"); rk.appendChild(el("div", "n", String(pos))); rk.appendChild(movement(s, pos));
       row.appendChild(rk);
@@ -344,8 +412,8 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     function metaItem(k, v) { var s = el("span"); s.appendChild(document.createTextNode(k + " ")); s.appendChild(el("b", "", v)); metaEl.appendChild(s); }
     metaItem("Chart:", d.source === "sales" ? "iTunes Store sales" : "Apple Music streaming");
     metaItem("Chart time:", fmtTime(d.chart_time));
-    if (data.demo) {
-      noticeEl.textContent = "Preview: song positions are the real iTunes chart from this afternoon. Last, peak, days and the NEW and RE marks are made-up demo values, because history only builds up once the site has been running for a few days.";
+    if (demo) {
+      noticeEl.textContent = "Preview: chart positions are real iTunes charts. Last, peak, days and the NEW and RE marks are demo values here; on the live site they come from real chart history.";
       noticeEl.hidden = false;
     } else if (d.source !== "sales") {
       noticeEl.textContent = "The sales chart could not be downloaded for this country, so this is the streaming chart instead.";
@@ -353,17 +421,113 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     }
   }
 
+  /* ---- country lists: main tabs and the searchable picker ---- */
+  function flag(code) {
+    if (!/^[a-z]{2}$/i.test(code || "")) return "";
+    return String.fromCodePoint.apply(null, code.toUpperCase().split("").map(function (ch) { return 0x1F1E6 + ch.charCodeAt(0) - 65; }));
+  }
+  function fold(t) { return (t || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
+  function others() { return countries.filter(function (c) { return !c.main; }).sort(function (a, b) { return a.name.localeCompare(b.name); }); }
+
+  function setCountries(list) {
+    countries = list && list.length ? list : DEFAULT_MAIN.slice();
+    byKey = {};
+    countries.forEach(function (c) { byKey[c.key] = c; });
+    tabsEl.textContent = "";
+    countries.filter(function (c) { return c.main; }).forEach(function (c) {
+      var b = el("button", "tab", TAB_LABEL[c.key] || c.key.toUpperCase());
+      b.type = "button"; b.dataset.key = c.key; b.title = c.name;
+      b.addEventListener("click", function () { choose(c.key); });
+      tabsEl.appendChild(b);
+    });
+    var n = others().length;
+    comboEl.parentNode.hidden = n === 0;
+    searchEl.placeholder = "Search " + n + " countries";
+  }
+
+  function choose(key) {
+    try { history.replaceState(null, "", "#" + key); } catch (e) {}
+    closeList();
+    show(key);
+    if (!info(key).main) searchEl.blur();
+  }
+
+  var activeIndex = -1, shown = [];
+  function openList() {
+    var q = fold(searchEl.value.trim());
+    var c = info(current);
+    if (!c.main && searchEl.value === c.name) q = "";   // show everything when the box just shows the current country
+    shown = others().filter(function (o) { return !q || fold(o.name).indexOf(q) !== -1 || o.code === q || o.key === q; });
+    shown.sort(function (a, b) { return (fold(a.name).indexOf(q) === 0 ? 0 : 1) - (fold(b.name).indexOf(q) === 0 ? 0 : 1) || a.name.localeCompare(b.name); });
+    listEl.textContent = "";
+    if (!shown.length) { var e = el("li", "empty", "No country matches “" + searchEl.value.trim() + "”"); listEl.appendChild(e); }
+    shown.forEach(function (o, i) {
+      var li = el("li"); li.id = "opt-" + o.key; li.setAttribute("role", "option"); li.setAttribute("aria-selected", "false");
+      li.appendChild(el("span", "fl", flag(o.code)));
+      li.appendChild(el("span", "", o.name));
+      li.appendChild(el("span", "cc", o.code));
+      li.addEventListener("mousedown", function (ev) { ev.preventDefault(); choose(o.key); });
+      listEl.appendChild(li);
+    });
+    activeIndex = shown.length && q ? 0 : -1;
+    highlight();
+    listEl.hidden = false; searchEl.setAttribute("aria-expanded", "true");
+  }
+  function closeList() { listEl.hidden = true; searchEl.setAttribute("aria-expanded", "false"); searchEl.removeAttribute("aria-activedescendant"); }
+  function highlight() {
+    Array.prototype.forEach.call(listEl.children, function (li, i) { li.setAttribute("aria-selected", String(i === activeIndex)); });
+    var li = listEl.children[activeIndex];
+    if (li && li.id) { searchEl.setAttribute("aria-activedescendant", li.id); li.scrollIntoView({ block: "nearest" }); }
+  }
+  searchEl.addEventListener("focus", function () { searchEl.select(); openList(); });
+  searchEl.addEventListener("input", openList);
+  searchEl.addEventListener("blur", function () { closeList(); var c = info(current); searchEl.value = c.main ? "" : c.name; });
+  searchEl.addEventListener("keydown", function (ev) {
+    if (ev.key === "ArrowDown") { ev.preventDefault(); if (listEl.hidden) openList(); activeIndex = Math.min(shown.length - 1, activeIndex + 1); highlight(); }
+    else if (ev.key === "ArrowUp") { ev.preventDefault(); activeIndex = Math.max(0, activeIndex - 1); highlight(); }
+    else if (ev.key === "Enter") { ev.preventDefault(); var o = shown[activeIndex] || (shown.length === 1 ? shown[0] : null); if (o) choose(o.key); }
+    else if (ev.key === "Escape") { closeList(); searchEl.blur(); }
+  });
+
   /* ---- loading and the update countdown ---- */
+  function applyTimes(j) {
+    if (Array.isArray(j.update_minutes) && j.update_minutes.length) UPDATE_MINUTES = j.update_minutes.slice().sort(function (a, b) { return a - b; });
+    else if (typeof j.update_minute === "number") UPDATE_MINUTES = [j.update_minute];
+  }
+  function getJSON(url) {
+    return fetch(url + (url.indexOf("?") < 0 ? "?" : "&") + "t=" + Date.now(), { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
   function load() {
-    return fetch("data.json?t=" + Date.now(), { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    return getJSON("data/index.json")
       .then(function (j) {
-        var t = j.demo ? Date.now() : Date.parse(j.fetched_at);
-        if (Array.isArray(j.update_minutes) && j.update_minutes.length) UPDATE_MINUTES = j.update_minutes.slice().sort(function (a, b) { return a - b; });
-        else if (typeof j.update_minute === "number") UPDATE_MINUTES = [j.update_minute];
-        if (!data || t !== fetchedAt) { data = j; fetchedAt = t; show(current); }
+        legacy = null; demo = !!j.demo;
+        applyTimes(j);
+        var t = demo ? Date.now() : Date.parse(j.fetched_at);
+        var first = !byKey[current] || countries === DEFAULT_MAIN || !indexStamp;
+        if (j.fetched_at !== indexStamp || first) {
+          indexStamp = j.fetched_at || String(Date.now());
+          cache = {};
+          setCountries(j.countries);
+          fetchedAt = t;
+          if (!byKey[current]) current = "us";
+          show(current);
+        }
       })
-      .catch(function () { if (!data) { noticeEl.textContent = "Could not load the chart data. Try reloading the page in a minute."; noticeEl.hidden = false; } });
+      .catch(function () {
+        // the old single-file setup (data.json), so the page keeps working while the site is switched over
+        return getJSON("data.json").then(function (j) {
+          applyTimes(j);
+          var t = j.demo ? Date.now() : Date.parse(j.fetched_at);
+          if (!legacy || t !== fetchedAt) {
+            legacy = j; demo = !!j.demo; fetchedAt = t;
+            setCountries(DEFAULT_MAIN.filter(function (c) { return j.markets && j.markets[c.key]; }));
+            if (!byKey[current]) current = "us";
+            show(current);
+          }
+        });
+      })
+      .catch(function () { if (!fetchedAt) { noticeEl.textContent = "Could not load the chart data. Try reloading the page in a minute."; noticeEl.hidden = false; } });
   }
 
   function slots(now) {           // scheduled update times from the previous hour to the next, in order
@@ -399,14 +563,14 @@ footer .fb { font-family: var(--font-display); font-weight: 800; font-stretch: 8
     } else { clockSub.textContent = ""; }
   }
 
-  Object.keys(MARKETS).forEach(function (k) {
-    var b = el("button", "tab", MARKETS[k].code);
-    b.type = "button"; b.dataset.key = k; b.title = MARKETS[k].name;
-    b.addEventListener("click", function () { show(k); try { history.replaceState(null, "", "#" + k); } catch (e) {} });
-    tabsEl.appendChild(b);
-  });
-  var h = (location.hash || "").replace("#", "");
-  if (MARKETS[h]) current = h;
+  function keyFromHash() {
+    var h = (location.hash || "").replace("#", "").toLowerCase();
+    return ALIASES[h] || h;
+  }
+  setCountries(DEFAULT_MAIN);
+  var start = keyFromHash();
+  if (start) current = start;
+  window.addEventListener("hashchange", function () { var k = keyFromHash(); if (k && k !== current && byKey[k]) show(k); });
   load().then(tick);
   setInterval(tick, 1000);
   setInterval(load, 15 * 60 * 1000);   // safety refresh in case a tab sleeps through an update
