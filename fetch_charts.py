@@ -49,6 +49,7 @@ CURVE_B = 0.68
 NOW_WEIGHT = 0.65             # how much the current position counts versus the last 24 hours
 OFF_CHART_POSITION = 110      # position assumed for times a song was outside the chart
 MIN_SCALE = 0.001             # smallest market size used, so tiny stores still show a spread of numbers
+MERGE_UPDATES_WITHIN = 10     # minutes: an update this soon after the last one replaces it in the 24-hour average
 # Relative demand by local weekday (Monday first). New music comes out on Fridays.
 WEEKDAY_DEMAND = [0.97, 0.95, 0.95, 0.98, 1.08, 1.06, 1.00]
 DAILY_SWING = 0.025           # ± change over the day, highest in the late evening
@@ -282,6 +283,34 @@ def demand_factor(now, utc_offset):
     return weekly * daily
 
 
+def in_chart_order(values):
+    """Even out estimates so no song shows more than the song ranked above it.
+
+    Uses the closest non-increasing sequence to the raw estimates (keeps their total), then spreads any
+    evened-out group gently in chart shape so neighbouring songs rarely show the same number.
+    """
+    blocks = []  # [sum, count]
+    for v in values:
+        blocks.append([v, 1])
+        while len(blocks) > 1 and blocks[-2][0] / blocks[-2][1] < blocks[-1][0] / blocks[-1][1]:
+            s2, c2 = blocks.pop()
+            blocks[-1][0] += s2
+            blocks[-1][1] += c2
+    out, start = [], 0
+    for total, count in blocks:
+        mean = total / count
+        if count == 1:
+            out.append(mean)
+        else:
+            weights = [curve(start + k + 1) ** 0.25 for k in range(count)]
+            avg = sum(weights) / count
+            out.extend(mean * w / avg for w in weights)
+        start += count
+    for i in range(1, len(out)):  # final guard: never above the song ranked higher
+        out[i] = min(out[i], out[i - 1])
+    return out
+
+
 def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
     """Update one country's history with the latest chart and return the songs with movement and sales.
 
@@ -291,7 +320,7 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
     store = market_hist.setdefault("songs", {})
     now_min = int(now.timestamp() // 60)
     cutoff = now_min - 24 * 60
-    snaps = [s for s in market_hist.get("snaps", []) if s > cutoff and s != now_min] + [now_min]
+    snaps = [s for s in market_hist.get("snaps", []) if s > cutoff and now_min - s >= MERGE_UPDATES_WITHIN] + [now_min]
     market_hist["snaps"] = snaps
     factor = demand_factor(now, utc_offset) * max(scale, MIN_SCALE)
 
@@ -303,6 +332,7 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
     del dates[:-KEEP_DAYS_OF_POSITIONS]
 
     result = []
+    raw_sales = []
     for index, song in enumerate(songs):
         position = index + 1
         key = song_key(song)
@@ -322,16 +352,17 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
             rec["peak"], rec["peak_date"] = position, today
         for old in sorted(rec["pos"])[:-KEEP_DAYS_OF_POSITIONS]:
             del rec["pos"][old]
-        recent = {m: p for m, p in rec.get("recent", []) if m > cutoff and m != now_min}
+        recent = {m: p for m, p in rec.get("recent", []) if m > cutoff and now_min - m >= MERGE_UPDATES_WITHIN}
         recent[now_min] = position
         rec["recent"] = sorted(recent.items())
         average = sum(curve(recent.get(s, OFF_CHART_POSITION)) for s in snaps) / len(snaps)
         sales = factor * (NOW_WEIGHT * curve(position) + (1 - NOW_WEIGHT) * average)
+        raw_sales.append(sales)
         result.append({
             "id": song.get("id", ""),
             "artist": song["artist"],
             "title": song["title"],
-            "sales": max(1, int(round(sales))),
+            "sales": 0,  # filled in below, in chart order
             "art": song.get("art") or rec.get("art", ""),
             "prev": previous,
             "peak": rec["peak"],
@@ -339,6 +370,9 @@ def apply_history(market_hist, songs, today, now, scale=1.0, utc_offset=0):
             "new": bool(is_new or (prev_chart_day is None and rec["days"] == 1)),
             "re": bool(previous is None and not is_new and rec["days"] > 1),
         })
+
+    for item, value in zip(result, in_chart_order(raw_sales)):
+        item["sales"] = max(1, int(round(value)))
 
     for key in [k for k, r in store.items() if r["last_date"] and day_diff(today, r["last_date"]) > FORGET_AFTER_DAYS]:
         del store[key]
